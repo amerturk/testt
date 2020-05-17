@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using Org.Apache.Http.Message;
+//using Org.Apache.Http.Message;
 using Signbook.Controls;
 using Signbook.ViewModels;
 using WhiteMvvm.Bases;

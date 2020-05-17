@@ -16,7 +16,7 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Plugin.FirebasePushNotification;
 using WhiteMvvm.Services.Navigation;
-using UIKit;
+//using UIKit;
 
 
 //[assembly: XamlCompilation(XamlCompilationOptions.Compile)]

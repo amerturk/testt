@@ -1,0 +1,51 @@
+﻿<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Signbook.Views.ScannerPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>-->
+<zxing:ZXingScannerPage
+    x:Class="Signbook.Views.FullScreenScanning"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+    Title="Full screen"
+    IsScanning="true"
+    OnScanResult="Handle_OnScanResult">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0" HeightRequest="60" Margin="10,40,10,0" VerticalOptions="Start">
+            <StackLayout VerticalOptions="Center"
+                             HorizontalOptions="End" >
+                <Image Margin="10,0"                
+                           Source="backIcon.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+        <BoxView Grid.Row="2" BackgroundColor="white"/>
+        
+
+        <zxing:ZXingScannerView Grid.Row="1" x:Name="_scanView" OnScanResult="Handle_OnScanResult" IsScanning="true" />
+        
+    </Grid>
+    </zxing:ZXingScannerPage>
+    
+    

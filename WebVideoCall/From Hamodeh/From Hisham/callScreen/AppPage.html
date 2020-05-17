@@ -1,0 +1,237 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenTok Getting Started </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="hidden" id="UserID" />
+    <input type="hidden" id="CompanyID" />
+    <input type="hidden" id="ApiKey" />
+    <input type="hidden" id="SessionId" value="2_MX40NjUzMDI4Mn5-MTU4MzUwNDgxNTIyNX4yS3A0Nk1OZno4YVlUQ0pGWWFxUmxFbkl-fg" />
+    <input type="hidden" id="Token" value="T1==cGFydG5lcl9pZD00NjUzMDI4MiZzaWc9NGM4NjYxMzY2MDdhOTZhODAwZjU4MjE4MDI1YzMyYmRlZDFjYmYzMzpzZXNzaW9uX2lkPTJfTVg0ME5qVXpNREk0TW41LU1UVTRNelV3TkRneE5USXlOWDR5UzNBME5rMU9abm80WVZsVVEwcEdXV0Z4VW14RmJrbC1mZyZjcmVhdGVfdGltZT0xNTgzNTA0ODM3Jm5vbmNlPTAuMjE1Njg3NTgzNTc1ODIxODUmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU4NjA5MzIzNiZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==" />
+    <div class="Call-Tools">
+      <button type="button" value="Call" id="btnCall" onclick="Call()"><i class="fas fa-phone-volume"></i></button>
+      <button type="button" value="End" id="btnEnd" onclick="End()"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="videos">
+        <div id="subscriber"></div>
+        <div id="publisher"></div>
+    </div>
+    
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCBwkPt6wT02qqv8dgtvJqwGkMdFnjcEnI",
+        authDomain: "omnsignbook.firebaseapp.com",
+        databaseURL: "https://omnsignbook.firebaseio.com",
+        projectId: "omnsignbook",
+        storageBucket: "omnsignbook.appspot.com",
+        messagingSenderId: "150339123225",
+        appId: "1:150339123225:web:dc34fd0c6375f67b89d288",
+        measurementId: "G-TMTHZZ3EPF"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+    <script>
+        var varuuidv4 = uuidv4();
+        function uuidv4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        var apiKey = "46530282";
+        var sessionId = "";
+        var token = "";
+        //658b7502148a073ec75b45a33c1b65b673aca7b1
+        var callclicked = false;
+        var StartTime;
+        var UserKey = false;
+        var UserData;
+        function Call() {
+            $('.call').html('جاري الاتصال');
+            if (callclicked == false) {
+                var ApplicationID = '';
+
+                //var UserData;
+                var ref = firebase.database().ref();
+                firebase.database().ref('/Users').once('value').then(function (snapshot) {
+
+                    var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                    for (var key in ObjUsers) {
+                        //if ((ObjUsers[key].IsOnline == 1) && (ObjUsers[key].IsBusy == 0) && (ObjUsers[key].Country == parseInt( $("#optSelectedCountry").val()))) {
+
+                        if ((ObjUsers[key].IsOnline == 1) && (ObjUsers[key].IsBusy == 0) && (ObjUsers[key].Country == 1)) {
+                            ApplicationID = ObjUsers[key].ApplicationID
+
+                            sessionId = ObjUsers[key].SessionId
+                            token = ObjUsers[key].Token
+
+                            UserKey = key;
+                            UserData = {
+                                Answered: ObjUsers[key].Answered,
+                                ApplicationID: ObjUsers[key].ApplicationID,
+                                Country: ObjUsers[key].Country,
+                                SessionId: ObjUsers[key].SessionId,
+                                IsBusy: 1,
+                                IsOnline: ObjUsers[key].IsOnline,
+                                Token: ObjUsers[key].Token,
+                                Name: ObjUsers[key].Name,
+                                PhoneNumber: ObjUsers[key].PhoneNumber,
+                                password: ObjUsers[key].password,
+                            };
+                            break;
+                        }
+                    }
+                    if (ApplicationID != '') {//publish()
+
+
+                        // Get a key for a new Post.
+                        var newPostKey = firebase.database().ref().child('Users').push().key;
+
+                        // Write the new post's data simultaneously in the posts list and the user's post list.
+                        var updates = {};
+                        updates['/Users/' + UserKey] = UserData;
+                        firebase.database().ref().update(updates);
+
+                        initializeSession();
+                        StartTime = Date();
+                        callclicked = true;
+                        var starCountRefs = firebase.database().ref('Users/' + UserKey);
+                        starCountRefs.on('value', function (snapshot) { 
+                            var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                            if (ObjUsers.IsBusy == 0) {//User Canceled
+                                ///Hisham Read Call Duration and Add it 
+
+                                Callupdates = {};
+                                var Logupdates = {
+                                    CallFrom: StartTime,
+                                    CallTo: Date(),
+                                    CompanyID: window.location.href.split('CompanyID=')[1].split('&')[0],
+                                    CompanyName: window.location.href.split('CompanyName=')[1].split('&')[0],
+                                    UserID: window.location.href.split('UserID=')[1].split('&')[0],
+                                    UserName: window.location.href.split('UserName=')[1].split('&')[0],
+                                    AnsweredBy: UserKey
+                                };
+                                Callupdates['/CallLog/' + varuuidv4] = Logupdates;
+                                firebase.database().ref().update(Callupdates);
+
+                                // Hisham End call log
+
+                                window.location.href = window.location.href
+                            }
+                        });
+
+                        setTimeout(function () {
+
+                            var starCountRefs = firebase.database().ref('Users/' + UserKey);
+                            starCountRefs.on('value', function (snapshot) {
+                                var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                                if (ObjUsers.Answered == 0) {//User didnt answer after 15 seconds
+                                    if (ObjUsers.IsBusy == 1) {
+                                        alert("No Answer");
+                                        UserData.IsBusy = 0;
+                                        UserData.IsOnline = 0;
+                                    
+                                    // Get a key for a new Post.
+                                    var newPostKey = firebase.database().ref().child('Users').push().key;
+                                    // Write the new post's data simultaneously in the posts list and the user's post list.
+                                    var updates = {};
+                                    updates['/Users/' + UserKey] = UserData;
+                                    firebase.database().ref().update(updates);
+
+                                    window.location.href = window.location.href
+                                }
+                                }
+                            });
+                        }, 30000);
+
+
+                    }
+                    else {
+                        alert('جميع موظفين مركز الإتصال مشغولون حاليا')
+                        window.location.href = window.location.href;
+                        callclicked = false;
+                    }
+                });
+            }
+            else {
+                alert('يوجد اتصال جاري حاليا');
+            }
+        }
+        function End() {
+            var updates = {};
+            UserData.IsBusy = 0;
+            updates['/Users/' + UserKey] = UserData;
+            firebase.database().ref().update(updates);
+            location.reload();
+        }
+
+        // Handling all of our errors here by alerting them
+        function handleError(error) {
+            if (error) {
+                alert(error.message);
+            }
+        }
+        // (optional) add server code here
+        //initializeSession();
+        function initializeSession() {
+            
+
+            var session = OT.initSession(apiKey, sessionId);
+            // Subscribe to a newly created stream
+
+           
+
+            session.on('streamCreated', function (event) {
+                session.subscribe(event.stream, 'subscriber', {
+                    insertMode: 'append',
+                    resolution: '1280x720',
+                    frameRate: 9,
+                    width: '100%',                    
+                    height: '100%'
+                }, handleError);
+            });
+
+            // Create a publisher
+           
+            var publisher = OT.initPublisher('publisher',{
+                insertMode: 'append',
+                resolution: '1280x720',
+                frameRate: 9,
+                width: '100%',                
+                height: '100%'
+            }, handleError);
+
+            // Connect to the session
+            session.connect(token, function (error) {
+                // If the connection is successful, initialize a publisher and publish to the session
+                if (error) {
+                    handleError(error);
+                } else {
+                    session.publish(publisher, handleError);
+                }
+            });
+
+        }
+    </script>
+</body>
+</html>

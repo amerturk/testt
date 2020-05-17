@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.EditDisabilityTypePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions"
+    AutoWireViewModel="True"
+    BackgroundColor="White"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <ScrollView>
+        <StackLayout>
+           <Grid HeightRequest="110" Margin="10,10,10,0" VerticalOptions="Start">
+                <StackLayout VerticalOptions="Center"
+                             HorizontalOptions="End">
+                    <Image Margin="10,0"                
+                           Source="backIcon.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnCloseTap}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            <Image
+                Margin="0,20,0,0"
+                Aspect="AspectFit"
+                HeightRequest="90"
+                HorizontalOptions="Center"
+                Source="SignbookLogo.png"
+                VerticalOptions="Start"
+                WidthRequest="90" />
+            </Grid>
+            <Label
+                Margin="20,20,20,0"
+                FontFamily="{x:Static constants:Fonts.FontRegular}"
+                FontSize="32"
+                HorizontalOptions="Start"
+                HorizontalTextAlignment="Start"
+                Text="{translate:Translate ChooseDisabilityType}"
+                TextColor="#394B6C" />
+            <Grid
+                Margin="20,10,20,0"
+                ColumnSpacing="10"
+                RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="154" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BackgroundColor="{Binding BlindBackground}"
+                    HasShadow="False">
+                    <StackLayout>
+                        <Image
+                            HeightRequest="80"
+                            Aspect="AspectFit"
+                            VerticalOptions="EndAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            Source="{Binding BlindImageSource}"
+                            WidthRequest="80" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BlindSelectedCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="{Binding DeafBackground}"
+                    HasShadow="False">
+                    <StackLayout>
+                        <Image
+                            HeightRequest="80"
+                            Aspect="AspectFit"
+                            VerticalOptions="EndAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            Source="{Binding DeafImageSource}"
+                            WidthRequest="80" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DeafSelectedCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,20,0,0"
+                    FontFamily="{x:Static constants:Fonts.FontRegular}"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="{translate:Translate Blind}"
+                    TextColor="#394B6C"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,20,0,0"
+                    FontFamily="{x:Static constants:Fonts.FontRegular}"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="{translate:Translate Deaf}"
+                    TextColor="#394B6C"
+                    VerticalOptions="Center" />
+            </Grid>
+            <!--<Image
+                Margin="0,10,-60,0"
+                Aspect="AspectFit"
+                HeightRequest="250"
+                HorizontalOptions="Start"
+                Source="{Binding PersonImage}"
+                VerticalOptions="EndAndExpand"
+                WidthRequest="300" />-->
+
+
+        </StackLayout>
+    </ScrollView>
+</bases:BaseContentPage>

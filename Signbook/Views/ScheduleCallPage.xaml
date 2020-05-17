@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <bases:BaseContentPage
+    x:Class="Signbook.Views.ScheduleCallPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:gifImage="clr-namespace:FFImageLoading;assembly=FFImageLoading"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions"
+    AutoWireViewModel="True"
+    BackgroundColor="White"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <bases:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>           
+        </ResourceDictionary>
+    </bases:BaseContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Image
+                    Margin="0,50,0,0"
+                    Aspect="AspectFit"
+                    HeightRequest="90"
+                    HorizontalOptions="Center"
+                    Source="SignbookLogo.png"
+                    VerticalOptions="Start"
+                    WidthRequest="90" />
+                <StackLayout VerticalOptions="Center">
+                    
+
+
+                    <Frame
+                        Margin="20,150,20,0"
+                        Padding="15"
+                        BackgroundColor="White"
+                        BorderColor="White"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Label
+                                 FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                Text="                      "/>
+                            <Image
+                    Margin="0,0,0,0"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"                     
+                    VerticalOptions="Start"
+                    x:Name="CompanyImage"
+                    WidthRequest="90" />
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="home.png"
+                                WidthRequest="50" />
+                            <Picker x:Name="picker"
+                                Title="اختر مؤسسة للاتصال"
+                                Margin="10,0 "
+                                WidthRequest="240"
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                SelectedIndexChanged="SelectionChanged"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                    >
+                                <Picker.ItemsSource>
+
+                                </Picker.ItemsSource>
+                            </Picker>
+
+                        </StackLayout>
+                    </Frame>
+                    
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="time.png"
+                                WidthRequest="50" />
+                            <TimePicker
+                                x:Name="cTime"
+                                WidthRequest="240"
+                                >
+
+
+                            </TimePicker>
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="date.png"
+                                WidthRequest="50" />
+                            <DatePicker
+                                x:Name="cDate"
+                                WidthRequest="240"
+                                >
+
+
+                            </DatePicker>
+
+                        </StackLayout>
+                    </Frame>
+                    
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="White"
+                        CornerRadius="5"
+                        HasShadow="False">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+
+                            <Label 
+                                Margin="0,0"
+                                x:Name="Responceformlbl"
+                                Text=" "
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="15"
+                                TextColor="Red"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+                            <Label 
+                                Margin="0,0"
+                                x:Name="ConfirmationLabel"
+                                Text=" "
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="15"
+                                TextColor="Green"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    
+
+                    <Frame
+                         Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="White"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Button 
+                                Margin="10,0 "
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                x:Name="ScheduleBtn"
+                                IsEnabled="False"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="300"
+                                Text="حجز"
+                                VerticalOptions="Center"
+                                Clicked="DoCallSchedule"
+                                />
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame
+                         Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="White"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Button 
+                                Margin="10,0 "
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="300"
+                                Text="رجوع"
+                                VerticalOptions="Center"
+                                 Command="{Binding MainPagesClickCommand}"
+                                />
+
+                        </StackLayout>
+                    </Frame>
+
+
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</bases:BaseContentPage>

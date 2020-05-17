@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.SuggestionPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:behaviors="clr-namespace:WhiteMvvm.Behaviors;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:controls="clr-namespace:Signbook.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions"
+    AutoWireViewModel="True"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <Grid HeightRequest="60" Margin="10,10,10,0" VerticalOptions="Start">
+                <StackLayout VerticalOptions="Center"
+                             HorizontalOptions="End">
+                    <Image Margin="10,0"                
+                           Source="backIcon.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnCloseTap}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="38"
+                    HorizontalOptions="Center"
+                    Source="SBLogo.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="38" />
+            </Grid>
+            <BoxView
+                HeightRequest="1"
+                VerticalOptions="Start"
+                Color="#50ACACAC" />
+            <StackLayout BackgroundColor="#F9F9F9" VerticalOptions="FillAndExpand">
+                <Frame
+                    Margin="20,30,20,0"
+                    Padding="5,15,5,15"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <controls:ExtEntry
+                        FontFamily="{x:Static constants:Fonts.FontRegular}"
+                        FontSize="20"
+                        Placeholder="{translate:Translate Name}"
+                        PlaceholderColor="#ACACAC"
+                        Text="{Binding Name}" />
+
+                </Frame>
+                <Frame
+                    Margin="20,10,20,0"
+                    Padding="5,15,5,15"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <controls:ExtEntry
+                        FontFamily="{x:Static constants:Fonts.FontRegular}"
+                        FontSize="20"
+                        Placeholder="{translate:Translate Email}"
+                        PlaceholderColor="#ACACAC"
+                        Text="{Binding Email}" />
+
+
+                </Frame>
+                <Frame
+                    Margin="20,10,20,0"
+                    Padding="5,15,5,15"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <controls:ExtEditor
+                        FontFamily="{x:Static constants:Fonts.FontRegular}"
+                        FontSize="20"
+                        HasUnderLine="False"
+                        HeightRequest="225"
+                        Placeholder="{translate:Translate MessageContent}"
+                        PlaceholderColor="#ACACAC"
+                        Text="{Binding Message}" />
+
+                </Frame>
+                <Button
+                    Margin="20,30,20,0"
+                    BackgroundColor="#394B6C"
+                    Command="{Binding SendSelectedCommand}"
+                    CornerRadius="20"
+                    FontFamily="{x:Static constants:Fonts.FontRegular}"
+                    FontSize="20"
+                    HeightRequest="64"
+                    Text="{translate:Translate Send}"
+                    TextColor="White" />
+            </StackLayout>
+            <BoxView
+                HeightRequest="1"
+                VerticalOptions="End"
+                Color="#50ACACAC" />
+        </StackLayout>
+    </ContentPage.Content>
+</bases:BaseContentPage>

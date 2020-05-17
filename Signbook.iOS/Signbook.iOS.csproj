@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4AD833D7-8054-408A-B694-729407180B3E}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Signbook.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Signbook.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>manual</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>Apple Distribution: Amer Turk (VN4A7WYM59)</CodesignKey>
+    <CodesignProvision>Signbook AD HOOK For Online Test</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Distribution: Amer Turk (VN4A7WYM59)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignProvision>Signbook AD HOOK For Online Test</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Distribution: Amer Turk (VN4A7WYM59)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Signbook AD HOOK For Online Test</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renders\AppSettingsInterface.cs" />
+    <Compile Include="Renders\BottomNavTabPageiOS.cs" />
+    <Compile Include="Renders\ExtEditorIOS.cs" />
+    <Compile Include="Renders\ExtEntryIOS.cs" />
+    <Compile Include="Renders\NotificationsInterface.cs" />
+    <Compile Include="Renders\StatusBarStyleManagerIOS.cs" />
+    <None Include="Entitlements.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Tajawal-Medium.ttf" />
+    <BundleResource Include="Resources\Tajawal-Light.ttf" />
+    <BundleResource Include="Resources\ChangeDisabilityTypeJordanGIF.gif" />
+    <BundleResource Include="Resources\ChangeCountryJordanGIF.gif" />
+    <BundleResource Include="Resources\AdsNewsJordan.gif" />
+    <BundleResource Include="Resources\UpCurve3.png" />
+    <BundleResource Include="Resources\LocalNewsJordan.gif" />
+    <BundleResource Include="Resources\InternationalNewsJordan.gif" />
+    <BundleResource Include="Resources\NotificationJordanGIF.gif" />
+    <BundleResource Include="Resources\SuggestionJordanGIF.gif" />
+    <BundleResource Include="Resources\backIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\10241.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1201.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\402.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\581.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\801.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Cirrious.FluentLayout">
+      <Version>2.9.0</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.FirebasePushNotification">
+      <Version>2.3.5</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Share">
+      <Version>7.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Agora.Full.Forms">
+      <Version>2.9.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.CloudMessaging">
+      <Version>4.1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile.Forms">
+      <Version>2.4.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Signbook\Signbook.csproj">
+      <Project>{CC2DFB8F-A34C-464B-87F6-8F3DBB4F104A}</Project>
+      <Name>Signbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhiteMvvm\WhiteMvvm.csproj">
+      <Project>{D8683A53-7368-409B-B189-688A2E312228}</Project>
+      <Name>WhiteMvvm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SignbookLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SignbookLogo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SignbookLogo%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BlueBlindImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BlueDeafImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EgyptFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EgyptFlag%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EgyptFlag%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EgyptPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EgyptPerson%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EgyptPerson%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\JordanFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\JordanFlag%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\JordanFlag%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\JordanPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\JordanPerson%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\JordanPerson%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OmanPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OmanPerson%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OmanPerson%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OmmanFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OmmanFlag%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OmmanFlag%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhiteBlindImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhiteBlindImage%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhiteBlindImage%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BarcodeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SettingIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NewsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackArrow%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SBLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SBLogo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SBLogo%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackArrow%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\topbarclose%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\topbarclose%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\topbarclose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splashscreen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mainsplash.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SettingsIcon2%403.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SettingsIcon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SettingsIcon2%402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DownCurveDownCurve%403.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DownCurve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DownCurve%402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UpCurve%403.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UpCurve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UpCurve%402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ChangeCountryOmanGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SuggestionOmanGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NotificationOmanGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ChangeDisabilityTypeOmanGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GifLocalNews.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GifAdvertisement.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GifInternationalNews.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cameraoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cameraon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fullscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hangup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\switch_camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_about%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_about%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_feed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_feed%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tab_feed%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unmute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unswitch_camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\call.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\calll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\number.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IdCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoutt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\signoute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\share.png" />
+  </ItemGroup>
+</Project>

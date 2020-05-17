@@ -1,0 +1,63 @@
+﻿body, html {
+}
+
+#videos {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#subscriber {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: #979797;
+}
+
+#publisher {
+    position: fixed;
+    right: 2%;
+    bottom: 3.4%;
+    z-index: 9999999;
+    width: 160px;
+    height: 111px;
+    background: aliceblue;
+    border: solid 2px #6c6c6c;
+    box-shadow: inset 1px 1px 18px 1px #9a9a9a;
+}
+
+
+#btnCall {background: #48c01b;}
+
+#btnCall i {}
+
+#btnEnd {
+    float: left;
+    background: red;
+}
+
+#btnEnd i {}
+
+
+.Call-Tools {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.Call-Tools button {
+    margin: 15px 12px;
+    font-size: 42px;
+    width: 65px;
+    height: 65px;
+    border: none;
+    border-radius: 1000px;
+    color: white;
+}

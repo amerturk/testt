@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.CountriesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions"
+    AutoWireViewModel="True"
+    BackgroundColor="White"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <StackLayout>
+        <!--<Image
+            Aspect="AspectFit"
+            HorizontalOptions="End"
+            WidthRequest="80"
+            HeightRequest="80"
+            Source="UpCurve3.png"
+            VerticalOptions="Start" />-->
+        <Label
+            Margin="20,100,20,20"
+            FontFamily="{x:Static constants:Fonts.FontRegular}"
+            FontSize="32"
+            HorizontalOptions="Start"
+            HorizontalTextAlignment="Start"
+            Text="{translate:Translate ChooseCountry}"
+            TextColor="#394B6C" />
+        <Frame
+            Margin="20,10,20,0"
+            Padding="15"
+            BackgroundColor="{Binding JordanBackgroundColor}"
+            BorderColor="#384B6C"
+            CornerRadius="5"
+            HasShadow="False">
+            <StackLayout Margin="15,0" Orientation="Horizontal">
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    Source="JordanFlag.png"
+                    WidthRequest="30" />
+                <Label
+                    Margin="20,0"
+                    FontFamily="{x:Static constants:Fonts.FontBold}"
+                    FontSize="20"
+                    Text="{translate:Translate Jordan}"
+                    TextColor="{Binding JordanTextColor}"
+                    VerticalOptions="Center" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding JordanSelectedCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Frame>
+        <Frame
+            Margin="20,10,20,0"
+            Padding="15"
+            BackgroundColor="{Binding OmmanBackgroundColor}"
+            BorderColor="#384B6C"
+            CornerRadius="5"
+            HasShadow="False">
+            <StackLayout Margin="15,0" Orientation="Horizontal">
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    Source="OmmanFlag.png"
+                    WidthRequest="30" />
+                <Label
+                    Margin="20,0"
+                    FontFamily="{x:Static constants:Fonts.FontBold}"
+                    FontSize="20"
+                    Text="{translate:Translate Omman}"
+                    TextColor="{Binding OmmanTextColor}"
+                    VerticalOptions="Center" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OmmanSelectedCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Frame>
+        <Frame
+            Margin="20,10,20,0"
+            Padding="15"
+            BackgroundColor="{Binding EgyptBackgroundColor}"
+            BorderColor="#384B6C"
+            CornerRadius="5"
+            HasShadow="False">
+            <StackLayout Margin="10,0" Orientation="Horizontal">
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    Source="EgyptFlag.png"
+                    WidthRequest="30" />
+                <Label
+                    Margin="20,0"
+                    FontAttributes="Bold"
+                    FontFamily="{x:Static constants:Fonts.FontBold}"
+                    FontSize="20"
+                    Text="{translate:Translate Egypt}"
+                    TextColor="{Binding EgyptTextColor}"
+                    VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EgyptSelectedCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding EgyptSelectedCommand}" />
+                </StackLayout.GestureRecognizers>
+
+            </StackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding EgyptSelectedCommand}" />
+            </Frame.GestureRecognizers>
+        </Frame>
+       <!--<Image
+            Aspect="AspectFill"
+            WidthRequest="150"
+            HeightRequest="150"
+            Margin="-20,-10"
+            HorizontalOptions="StartAndExpand"
+            Source="DownCurve.png"          
+            VerticalOptions="EndAndExpand"/>-->
+    </StackLayout>
+</bases:BaseContentPage>

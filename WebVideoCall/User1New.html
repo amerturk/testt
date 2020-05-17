@@ -1,0 +1,649 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>مركز الاتصال الجديد</title>
+
+    <style>
+        .OrdersSection {
+            padding: 64px 14px;
+            /* min-height: 500px; */
+        }
+
+            .OrdersSection div {
+            }
+
+
+
+
+
+
+            .OrdersSection h1 {
+                font-size: 25px;
+                display: block;
+                margin: 6px auto;
+                text-align: center;
+            }
+
+            .OrdersSection button {
+                display: block;
+                margin: 21px auto 44px;
+                width: 209px;
+                padding: 4px;
+                border-radius: 6px;
+                border: none;
+                font-size: 33px;
+            }
+
+        .hangUp {
+            background: red;
+            color: aliceblue;
+            text-shadow: 1px 1px 4px black;
+        }
+
+
+        .call {
+            background: #00a039;
+            color: aliceblue;
+        }
+
+
+        .OrdersSection i {
+        }
+
+
+
+        .VideoGoesHere {
+            border: solid 1px #2b629a85;
+            min-height: 500px;
+            box-shadow: -1px 5px 20px 0px #0000005e;
+            position: relative;
+            overflow: hidden;
+            width: 63%;
+        }
+
+
+
+            .VideoGoesHere div {
+                position: absolute !important;
+                width: 100%;
+                height: 100%;
+                z-index: 9999999;
+            }
+
+
+
+        .BannerScreen {
+            position: absolute;
+            bottom: -33px;
+            width: 100%;
+            left: 0;
+            background: #2973d9;
+            box-shadow: -1px -1px 20px 0px #00000057;
+            padding-bottom: 40px;
+        }
+
+
+            .BannerScreen img {
+                display: block;
+                margin: 0 auto;
+                width: 275px;
+            }
+
+
+
+        #agora_local {
+            z-index: 99999999999999999;
+            width: 195px;
+            height: 119px;
+            border: solid 1px #fff6f6;
+            box-shadow: 1px 1px 8px 7px #00000069;
+            right: 15px;
+            top: 14px;
+        }
+
+        .Logout {
+            font-size: 37px;
+            width: 198px;
+            padding: 11px 10px;
+            border-radius: 141px;
+            margin-top: 16px;
+            margin-left: 14px;
+            background: whitesmoke;
+            color: red;
+            border: solid 3px red;
+            font-weight: bold;
+            text-shadow: 1px 1px 20px #00000094;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999999999999999;
+        }
+
+        .LogInbtn {
+            font-size: 37px;
+            width: 220px;
+            padding: 11px 10px;
+            border-radius: 141px;
+            margin-top: 16px;
+            margin-left: 14px;
+            background: whitesmoke;
+            color: green;
+            border: solid 3px #28a745;
+            font-weight: bold;
+            text-shadow: 1px 1px 20px #00000094;
+            position: fixed;
+            top: 0;
+            left: 41%;
+            z-index: 999999999999999;
+        }
+
+
+
+        .OrdersSection {
+            padding: 64px 14px;
+            position: fixed;
+            bottom: 79px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 99999999999;
+        }
+
+            /* .OrdersSection div {
+                display: inline-block;
+                width: 49%;
+            }
+            */
+
+
+
+
+
+            .OrdersSection h1 {
+                font-size: 25px;
+                display: none;
+                margin: 6px auto;
+                text-align: center;
+            }
+
+            .OrdersSection button {
+                display: block;
+                margin: 0 auto;
+                width: 96%;
+                padding: 9px;
+                border-radius: 6px;
+                border: none;
+                font-size: 41px;
+            }
+
+        .hangUp {
+            background: red;
+            color: aliceblue;
+            text-shadow: 1px 1px 4px black;
+        }
+
+
+        .call {
+            background: #00a039;
+            color: aliceblue;
+        }
+
+
+        .OrdersSection i {
+        }
+
+
+
+        .VideoGoesHere {
+            border: solid 1px #2b629a78;
+            min-height: 500px;
+            box-shadow: -1px 5px 20px 0px #0000005e;
+            position: fixed !important;
+            overflow: hidden;
+            width: 100%;
+            left: 0;
+            top: 0;
+            height: 100%;
+        }
+
+
+
+            .VideoGoesHere div {
+            }
+
+
+
+        .BannerScreen {
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            background: #2973d9;
+            box-shadow: -1px -1px 20px 0px #00000057;
+            padding-bottom: 40px;
+            height: auto !important;
+            z-index: 99999999999999999 !important;
+        }
+
+
+            .BannerScreen img {
+                display: block;
+                margin: 0 auto;
+                width: 275px;
+            }
+
+
+
+        #agora_local {
+            position: fixed !important;
+            z-index: 99999999999999999;
+            width: 367px;
+            height: 35%;
+            border: solid 1px #fff6f6;
+            box-shadow: 1px 1px 8px 7px #00000069;
+            right: 26px;
+            top: 32px;
+        }
+
+        .OrdersSection div {
+            display: block;
+            width: 158px;
+            margin-bottom: 12px;
+        }
+
+        video {
+            display: block;
+            transform: scale(.9);
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+
+
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script>
+        //if (location.protocol != 'https:') {
+        //    location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        //}
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCBwkPt6wT02qqv8dgtvJqwGkMdFnjcEnI",
+            authDomain: "omnsignbook.firebaseapp.com",
+            databaseURL: "https://omnsignbook.firebaseio.com",
+            projectId: "omnsignbook",
+            storageBucket: "omnsignbook.appspot.com",
+            messagingSenderId: "150339123225",
+            appId: "1:150339123225:web:dc34fd0c6375f67b89d288",
+            measurementId: "G-TMTHZZ3EPF"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+</head>
+
+<body>
+    <div class="select" style="width: 100%; text-align: center; margin-top: 10%">
+        <input type="hidden" id="optAccountopentok" value="User1" /><br />
+        <br />
+        <input type="hidden" id="optAccountopentokPass" value="1234567" /><br />
+        <br />
+        <button type="button" class='LogInbtn' onclick="runopentok(1)"><i class="fas fa-power-off"></i>Turn On</button>
+        <div id="LogoImages" style="text-align: center">
+            <img src="SBLOGO-1.png" style="width: 50%" />
+        </div>
+    </div>
+    <button type="button" class="Logout" style="display: none;" onclick="Logout()">Turn Off</button>
+
+    <input type="hidden" value="" id="CurrentuserName" />
+    <input type="hidden" value="" id="CurrentuserPhone" />
+    <input type="hidden" value="" id="CurrentuserCountry" />
+    <div class="container" style="display: none; padding-top: 30px;">
+        <div class='row'>
+            <div class='col-md-4'>
+                <div class='OrdersSection'>
+
+                    <div>
+                        <h1>اجب الهاتف </h1>
+                        <button type="button" class='call'><i class="fas fa-phone"></i></button>
+                    </div>
+                    <div>
+                        <h1>الغاء الاتصال </h1>
+                        <button type="button" class="hangUp"><i class="fas fa-phone-slash"></i></button>
+                    </div>
+                    <div>
+                        <img src="SBLOGO-1.png" style="width: 100%" />
+                    </div>
+                </div>
+                <audio id="myAudio" class="ringtone">
+                    <source src="ringtone.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <div id="videos" class="VideoGoesHere">
+                <div id="subscriber"></div>
+                <div id="publisher"></div>
+            </div>
+
+
+        </div>
+    </div>
+     
+    <script src="requirements/js/jquery.cookie.js"></script>
+    <script src="requirements/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+
+    </script>
+
+    <script lang="javascript">
+
+        var apiKey = "46530282";
+        var sessionId = "2_MX40NjUzMDI4Mn5-MTU4MzUwNDgxNTIyNX4yS3A0Nk1OZno4YVlUQ0pGWWFxUmxFbkl-fg";
+        var token = "T1==cGFydG5lcl9pZD00NjUzMDI4MiZzaWc9NGM4NjYxMzY2MDdhOTZhODAwZjU4MjE4MDI1YzMyYmRlZDFjYmYzMzpzZXNzaW9uX2lkPTJfTVg0ME5qVXpNREk0TW41LU1UVTRNelV3TkRneE5USXlOWDR5UzNBME5rMU9abm80WVZsVVEwcEdXV0Z4VW14RmJrbC1mZyZjcmVhdGVfdGltZT0xNTgzNTA0ODM3Jm5vbmNlPTAuMjE1Njg3NTgzNTc1ODIxODUmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU4NjA5MzIzNiZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==";
+      
+        $(document).ready(function () {
+            //if ((getCookie("UID") != null) && (getCookie("PWD") != null)) {//loggedin
+            //    $('#optAccountopentok').val(getCookie("UID"));
+            //    $('#optAccountopentokPass').val(getCookie("PWD"));
+                
+            //}
+            runopentok()
+        });
+
+
+        function Logout() {
+            var ref = firebase.database().ref();
+
+            var CurrentPhoneNumber='';
+            firebase.database().ref('/Users').once('value').then(function (snapshot) {
+                var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                CurrentPhoneNumber= ObjUsers[$('#optAccountopentok').val()].PhoneNumber;
+                var tUserData = { 
+                    Answered: 0,
+                    ApplicationID: ObjUsers['User1'].ApplicationID,
+                    Country: ObjUsers['User1'].Country,
+                    SessionId: ObjUsers['User1'].SessionId,
+                    IsBusy: 0,
+                    IsOnline: 0,
+                    Token: ObjUsers['User1'].Token,
+                    Name: ObjUsers['User1'].Name,
+                    PhoneNumber: ObjUsers['User1'].PhoneNumber,
+                    password: ObjUsers['User1'].password,
+                };
+                //debugger
+                var tupdates = {};
+                tupdates['/Users/User1'] = tUserData;
+                firebase.database().ref().update(tupdates);
+                eraseCookie("UID")
+                eraseCookie("PWD")
+                window.location.href = window.location.href;
+            });
+          
+
+        }
+
+        function login() {
+            var ref = firebase.database().ref();
+            var CurrentPhoneNumber='';
+            firebase.database().ref('/Users').once('value').then(function (snapshot) {
+                var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                CurrentPhoneNumber= ObjUsers[$('#optAccountopentok').val()].PhoneNumber;
+                var tUserData = {
+                    Answered: ObjUsers['User1'].Answered,
+                    ApplicationID: ObjUsers['User1'].ApplicationID,
+                    Country: ObjUsers['User1'].Country,
+                    SessionId: ObjUsers['User1'].SessionId,
+                    IsBusy: ObjUsers['User1'].IsBusy,
+                    IsOnline: 1,
+                    Token: ObjUsers['User1'].Token,
+                    Name: ObjUsers['User1'].Name,
+                    PhoneNumber: ObjUsers['User1'].PhoneNumber,
+                    password: ObjUsers['User1'].password,
+                };
+                var tupdates = {};
+                tupdates['/Users/User1'] = tUserData;
+                firebase.database().ref().update(tupdates);
+            });
+            
+
+        }
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires //+ "; path=/";
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-99999999;';
+        }
+        function runopentok(opt) {
+          
+            if ($("#optAccountopentokPass").val() == '') {
+                return false;
+            }
+            //setCookie("UID", $('#optAccountopentok').val(), 1)
+            //setCookie("PWD", $('#optAccountopentokPass').val(), 1)
+            //firebase lisitiner
+            var ref = firebase.database().ref();
+            //firebase.database().ref('/Users/' + $('#optAccountopentok').val()).once('value', function (snapshot) {
+            firebase.database().ref('/Users/User1').once('value', function (snapshot) {
+                var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                if (ObjUsers.password != $('#optAccountopentokPass').val()) {
+                    alert("Invalid Username / password");
+                    $("#optAccountopentokPass").val('');
+                    // window.location.href = window.location.href ;
+                    return;
+                }
+                $('#appId').val(ObjUsers.ApplicationID);
+                $('#CurrentuserCountry').val(ObjUsers.Country)
+                $('#CurrentuserName').val(ObjUsers.Name)
+                if(ObjUsers.PhoneNumber == undefined)
+                {
+                    eraseCookie("UID");
+                    eraseCookie("PWD");
+                    window.location.href = window.location.href;
+                }
+                $('#CurrentuserPhone').val(ObjUsers.PhoneNumber)
+                if(ObjUsers.IsOnline =='1' || opt ==1)
+                {
+                    login()
+                }
+                else
+                {
+                    return false;
+                }
+                $('.select').hide();
+                $('.Logout').show();
+                $('.container').show()
+             
+                $('.call').click(function () {
+                    $('.ringtone')[0].pause();
+                    $('.BannerScreen').hide()
+                    firebase.database().ref('/Users').once('value').then(function (snapshot) {
+
+                        var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                        for (var key in ObjUsers) {
+                            if(key == "User1")
+                            {
+                                ApplicationID = ObjUsers[key].ApplicationID
+                                UserKey = key;
+                                UserDatad = {
+                                    Answered: 1,
+                                    ApplicationID: ObjUsers[key].ApplicationID,
+                                    Country: ObjUsers[key].Country,
+                                    SessionId: ObjUsers[key].SessionId,
+                                    IsBusy: 1,
+                                    IsOnline: ObjUsers[key].IsOnline,
+                                    Token: ObjUsers[key].Token,
+                                    Name: ObjUsers[key].Name,
+                                    PhoneNumber: ObjUsers[key].PhoneNumber,
+                                    password: ObjUsers[key].password,
+                                };
+                                var updatesd = {};
+                                updatesd['/Users/' + UserKey] = UserDatad;
+                                firebase.database().ref().update(updatesd);
+                                break;
+                            }
+                        }});
+
+                    //Hisham Call here
+                    initializeSession()
+                    $('.BannerScreen').hide()
+                });
+                if (ObjUsers.IsBusy == '1') {
+                    $('#CurrentuserName').val(ObjUsers.Name)
+                    $('#CurrentuserPhone').val(ObjUsers.PhoneNumber)
+                    $('#CurrentuserCountry').val(ObjUsers.Country)
+                    // alert('isbusy')
+                    $('.VideoGoesHere').append('<div class="BannerScreen animated bounceInUp slower"><img src="requirements/img/ringing.gif"></div>');
+                    var promise = document.querySelector('audio').play();
+
+                    if (promise !== undefined) {
+                        promise.then(_ => {
+
+                        }).catch(error => {
+                            document.querySelector('audio').play();
+                    });
+
+                }
+            }
+            });
+
+        $('.hangUp').click(function () {
+            firebase.database().ref('/Users').once('value').then(function (snapshot) {
+
+                var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+                for (var key in ObjUsers) {
+                    if(key == "User1")
+                    {
+                        ApplicationID = ObjUsers[key].ApplicationID
+                        UserKey = key;
+                        UserData = {
+                            Answered: 0,
+                            ApplicationID: ObjUsers[key].ApplicationID,
+                            Country: ObjUsers[key].Country,
+                            SessionId: ObjUsers[key].SessionId,
+                            IsBusy: 0,
+                            IsOnline: ObjUsers[key].IsOnline,
+                            Token: ObjUsers[key].Token,
+                            Name: ObjUsers[key].Name,
+                            PhoneNumber: ObjUsers[key].PhoneNumber,
+                            password: ObjUsers[key].password,
+                        };
+                        var updates = {};
+                        updates['/Users/' + UserKey] = UserData;
+                        firebase.database().ref().update(updates);
+                        
+                        location.reload();
+                        break;
+                    }
+                }});
+        });
+
+        //firebase.database().ref('/Users/' + $('#optAccountopentok').val()).on('value', function (snapshot) {
+        firebase.database().ref('/Users/User1').on('value', function (snapshot) {
+            var ObjUsers = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+            if (ObjUsers.password != $('#optAccountopentokPass').val()) {
+                alert("Invalid Username / password");
+                $("#optAccountopentokPass").val('');
+                //window.location.href = window.location.href ;
+                return;
+            }
+            if (ObjUsers.IsBusy == '1') {
+                $('#CurrentuserName').val(ObjUsers.Name)
+                $('#CurrentuserCountry').val(ObjUsers.Country)
+                // alert('isbusy')
+                $('.VideoGoesHere').append('<div class="BannerScreen animated bounceInUp slower"><img src="requirements/img/ringing.gif"></div>');
+                var promise = document.querySelector('audio').play();
+
+                if (promise !== undefined) {
+                    promise.then(_ => {
+
+                    }).catch(error => {
+                        document.querySelector('audio').play();
+                });
+
+            }
+            else {
+                ///Hisham Note
+                location.reload();
+            }
+        }
+        });
+       
+        }
+        // Handling all of our errors here by alerting them
+        function handleError(error) {
+            if (error) {
+                alert(error.message);
+            }
+        }
+        // (optional) add server code here
+        //initializeSession();
+        function initializeSession() {
+            var session = OT.initSession(apiKey, sessionId);
+
+            // Subscribe to a newly created stream
+            session.on('streamCreated', function (event) {
+                session.subscribe(event.stream, 'subscriber', {
+                    insertMode: 'append',
+                    width: '100%',
+                    height: '100%'
+                }, handleError);
+            });
+
+            // Create a publisher
+            var publisher = OT.initPublisher('publisher', {
+                insertMode: 'append',
+                width: '100%',
+                height: '100%'
+            }, handleError);
+
+            // Connect to the session
+            session.connect(token, function (error) {
+                // If the connection is successful, initialize a publisher and publish to the session
+                if (error) {
+                    handleError(error);
+                } else {
+                    session.publish(publisher, handleError);
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

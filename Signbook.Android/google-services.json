@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "856795542506",
+    "firebase_url": "https://signbook-application.firebaseio.com",
+    "project_id": "signbook-application",
+    "storage_bucket": "signbook-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856795542506:android:ed56b35193c8e017af3893",
+        "android_client_info": {
+          "package_name": "sign.com.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856795542506-9fcu9n0fq8h0tn2q2a8rb2qom0ffppor.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcsPg5Kid_dE-Ah_68fgxOYQv-OqHjCV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856795542506-9fcu9n0fq8h0tn2q2a8rb2qom0ffppor.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

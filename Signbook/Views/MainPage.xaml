@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:gifImage="clr-namespace:FFImageLoading;assembly=FFImageLoading"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions"
+    AutoWireViewModel="True"
+    BackgroundColor="White"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Image
+                    Margin="0,40,0,0"
+                    Aspect="AspectFit"
+                    HeightRequest="90"
+                    HorizontalOptions="Center"
+                    Source="SignbookLogo.png"
+                    VerticalOptions="Start"
+                    WidthRequest="90" />
+                <StackLayout VerticalOptions="Center">
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        x:Name="newsBtnMain"
+                        >
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="200">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="NewsIcon.png"
+                                WidthRequest="50" />
+                            <Label
+                                Margin="20,0"
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                Text="{translate:Translate News}"
+                                TextColor="{Binding NewsTextColor}"
+                                VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NewsSelectedCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NewsSelectedCommand}" />
+                            </StackLayout.GestureRecognizers>
+
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NewsSelectedCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding BarcodeBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False">
+                        <StackLayout
+                            Margin="15,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="200">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="BarcodeIcon.png"
+                                WidthRequest="50" />
+                            <Label
+                                Margin="20,0"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                Text="{translate:Translate Barcode}"
+                                TextColor="{Binding BarcodeTextColor}"
+                                VerticalOptions="Center" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BarcodeSelectedCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BarcodeSelectedCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding VcallBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        x:Name="callBtnMain"
+                        HasShadow="False">
+                        <StackLayout
+                            Margin="15,0"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            WidthRequest="220">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="call.png"
+                                WidthRequest="50" />
+                            <Label
+                                Margin="20,0"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                Text="الإتصال المرئي"
+                                TextColor="{Binding VcallTextColor}"
+                                VerticalOptions="Center" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding VideoWebClickCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding VideoWebClickCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding SettingBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False">
+                        <StackLayout
+                            Margin="15,0"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            WidthRequest="200">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="SettingIcon.png"
+                                WidthRequest="50" />
+                            <Label
+                                Margin="20,0"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                Text="{translate:Translate Setting}"
+                                TextColor="{Binding SettingTextColor}"
+                                VerticalOptions="Center" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SettingSelectedCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SettingSelectedCommand}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                   
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</bases:BaseContentPage>

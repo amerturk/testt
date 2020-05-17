@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.VideoWebPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:agora="clr-namespace:Xamarin.Agora.Full.Forms;assembly=Xamarin.Agora.Full.Forms"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:converters="clr-namespace:WhiteMvvm.Converters;assembly=WhiteMvvm"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    AutoWireViewModel="True"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <bases:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+            <converters:ReverseBoolConverter x:Key="InvertBoolConverter" />
+        </ResourceDictionary>
+    </bases:BaseContentPage.Resources>
+    <bases:BaseContentPage.Content>
+        <StackLayout   Margin="0,50">
+            
+        </StackLayout>      
+    </bases:BaseContentPage.Content>
+</bases:BaseContentPage>

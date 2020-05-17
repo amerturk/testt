@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<resources>
+ <string name="ok">OK</string>
+  <string name="notification_text">Standort wird im Hintergrund gesendet.</string>
+  <string name="permission_location_rationale">Diese App muss im Hintergrund laufen um die aktuelle Position dieser Einheit an das Leitstellensystem zu übertragen.</string>
+  <string name="permission_camera_rationale">Der QR Code Reader muss auf die Kamera zugreifen können, um die Einheit registrieren zu können.</string>
+</resources>

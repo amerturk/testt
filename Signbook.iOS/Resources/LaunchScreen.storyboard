@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X5k-f2-b5h">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8P-hJ-Z43"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
+                    </layoutGuides>
+                    <view contentMode="scaleToFill" id="4979" key="view">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="1" alpha="1"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4980" translatesAutoresizingMaskIntoConstraints="NO" image="splashBackground.png">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5439" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" image="SignbookLogo.png">
+                                <rect key="frame" x="134" y="146" width="133" height="125"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="4981" firstItem="4980" firstAttribute="top" secondItem="4979" secondAttribute="top"/>
+                            <constraint id="4982" firstAttribute="right" secondItem="4980" secondAttribute="right"/>
+                            <constraint id="4983" firstItem="4980" firstAttribute="left" secondItem="4979" secondAttribute="left"/>
+                            <constraint id="4984" firstAttribute="bottom" secondItem="4980" secondAttribute="bottom"/>
+                            <constraint id="5440" firstItem="5439" firstAttribute="centerX" secondItem="4980" secondAttribute="centerX"/>
+                            <constraint id="5441" firstItem="5439" firstAttribute="top" secondItem="4980" secondAttribute="top" constant="146"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SignbookLogo.png" width="120" height="148"/>
+    </resources>
+</document>

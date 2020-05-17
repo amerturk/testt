@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.SettingPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:behaviors="clr-namespace:WhiteMvvm.Behaviors;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:controls="clr-namespace:Signbook.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions" xmlns:ffimageloading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    AutoWireViewModel="True"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView Margin="0,0,0,50">
+          <StackLayout  Spacing="0">
+
+            <Grid HeightRequest="60" Margin="10,10,10,0" VerticalOptions="Start">
+                <StackLayout VerticalOptions="Center"
+                             HorizontalOptions="End">
+                    <Image Margin="10,0"                
+                           Source="backIcon.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnCloseTap}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="38"
+                    HorizontalOptions="Center"
+                    Source="SBLogo.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="38" />
+            </Grid>
+            <BoxView
+                HeightRequest="1"
+                VerticalOptions="Start"
+                Color="#50ACACAC" />
+           <ffimageloading:SvgCachedImage
+                    Margin="0"
+                    Aspect="AspectFill"
+                    HeightRequest="105"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsDeaf}"
+                    Source="{Binding NotificationGIF}"
+                    VerticalOptions="Center"
+                    WidthRequest="105" />
+              <!--BackgroundColor="#F9F9F9"-->
+            <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <Frame
+                    Margin="20,30,20,0"
+                    Padding="5,15,5,15"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <Label
+                            Margin="0"
+                            FontFamily="{x:Static constants:Fonts.FontBold}"
+                            FontSize="20"
+                            Text="{translate:Translate Notification}"
+                            TextColor="#65659D"
+                            VerticalOptions="Center" />
+                        <controls:ExtSwitch
+                            Margin="0"
+                            HorizontalOptions="EndAndExpand"
+                            IsToggled="{Binding BreakingNewToggled}"
+                            VerticalOptions="Center">
+                            <controls:ExtSwitch.Behaviors>
+                                <behaviors:EventToCommandBehavior Command="{Binding BreakingNewsCommand}" EventName="{OnPlatform iOS=Toggled, Android=ToggledDroid}" />
+                            </controls:ExtSwitch.Behaviors>
+                        </controls:ExtSwitch>
+                    </StackLayout>
+                </Frame>
+                <ffimageloading:SvgCachedImage
+                    Margin="0"
+                    Aspect="AspectFill"
+                    HeightRequest="105"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsDeaf}"
+                    Source="{Binding ChangeDisabilityTypeGIF}"
+                    VerticalOptions="Center"
+                    WidthRequest="105" />
+                <Frame
+                    Margin="20,10,20,0"
+                    Padding="5,15,5,15"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <Label
+                            Margin="0"
+                            FontFamily="{x:Static constants:Fonts.FontBold}"
+                            FontSize="20"
+                            Text="{translate:Translate ChangeDisabilityType}"
+                            TextColor="#65659D"
+                            VerticalOptions="Center" />
+                        <Image
+                            Margin="0"
+                            Aspect="AspectFit"
+                            HeightRequest="20"
+                            HorizontalOptions="EndAndExpand"
+                            Source="BackArrow.png"
+                            VerticalOptions="Center"
+                            WidthRequest="20" />
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeDisabilityTypeSelectedCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                </Frame>
+               <ffimageloading:SvgCachedImage
+                    Margin="0"
+                    Aspect="AspectFill"
+                    HeightRequest="105"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsDeaf}"
+                    Source="{Binding ChangeCountryGIF}"
+                    VerticalOptions="Center"
+                    WidthRequest="105" />
+                <Frame
+                    Margin="20,10,20,0"
+                    Padding="5,15,5,15"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <Label
+                            Margin="0"
+                            FontFamily="{x:Static constants:Fonts.FontBold}"
+                            FontSize="20"
+                            Text="{translate:Translate ChangeCountry}"
+                            TextColor="#65659D"
+                            VerticalOptions="Center" />
+                        <Image
+                            Margin="0"
+                            Aspect="AspectFit"
+                            HeightRequest="20"
+                            HorizontalOptions="EndAndExpand"
+                            Source="BackArrow.png"
+                            VerticalOptions="Center"
+                            WidthRequest="20" />
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeCountrySelectedCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+               <ffimageloading:SvgCachedImage
+                    Margin="0"
+                    Aspect="AspectFill"
+                    HeightRequest="105"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsDeaf}"
+                    Source="{Binding SuggestionAndComplitionGIF}"
+                    VerticalOptions="Center"
+                    WidthRequest="105" />
+                    <Frame
+                    Margin="20,10,20,0"
+                    Padding="5,15,5,15"
+                    BackgroundColor="White"
+                    CornerRadius="5"
+                    HasShadow="False">
+                        <StackLayout Margin="15,0" Orientation="Horizontal">
+                            <Label
+                            Margin="0"
+                            FontFamily="{x:Static constants:Fonts.FontBold}"
+                            FontSize="20"
+                            Text="{translate:Translate SuggestionAndComplition}"
+                            TextColor="#65659D"
+                            VerticalOptions="Center" />
+                            <Image
+                            Margin="0"
+                            Aspect="AspectFit"
+                            HeightRequest="20"
+                            HorizontalOptions="EndAndExpand"
+                            Source="BackArrow.png"
+                            VerticalOptions="Center"
+                            WidthRequest="20" />
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SuggestionAndComplitionSelectedCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+            <BoxView
+                HeightRequest="1"
+                VerticalOptions="End"
+                Color="#50ACACAC" />
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</bases:BaseContentPage>

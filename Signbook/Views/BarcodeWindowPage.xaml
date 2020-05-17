@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.BarcodeWindowPage   "
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:customControls="clr-namespace:Signbook.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <bases:BaseContentPage.Content>
+        <StackLayout
+            Margin="0"
+            Padding="0"
+            BackgroundColor="White"
+            Spacing="0">
+            <Grid HeightRequest="60" Margin="10,30,10,0" VerticalOptions="Start">
+                <StackLayout
+                Margin="0"
+                Padding="16,0"
+                HeightRequest="50">
+                    <Image
+                    Aspect="AspectFit"
+                    HeightRequest="25"
+                    HorizontalOptions="EndAndExpand"
+                    Source="topbarclose.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="25">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="38"
+                    HorizontalOptions="Center"
+                    Source="SBLogo.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="38" />
+            </Grid>
+            <Grid>
+                <ActivityIndicator
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    IsRunning="True"
+                    IsVisible="True"
+                    VerticalOptions="Center"
+                    Color="Gray" />
+                <customControls:ExtWebView
+                    x:Name="WebView"
+                    Margin="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="1000"
+                    HorizontalOptions="FillAndExpand"
+                    UnScrollable="True"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="2000">
+                    <WebView.Source>
+                        <UrlWebViewSource Url="{Binding ChannelSource}" />
+                    </WebView.Source>
+                </customControls:ExtWebView>
+            </Grid>
+        </StackLayout>
+    </bases:BaseContentPage.Content>
+</bases:BaseContentPage>

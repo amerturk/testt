@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bases:BaseContentPage
+    x:Class="Signbook.Views.NewsMainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions"
+    x:Name="page"
+    AutoWireViewModel="True"
+    BackgroundColor="White"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <ScrollView>
+        <Grid Padding="0">
+              <Grid HeightRequest="40" Margin="10,10,10,0" VerticalOptions="Start">
+                <StackLayout VerticalOptions="Center"
+                             HorizontalOptions="End">
+                    <Image Margin="10,0"                
+                           Source="backIcon.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OnCloseTap}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Source="NewsIcon.png"
+                    VerticalOptions="Start"
+                    WidthRequest="100" />
+            </Grid>
+            <!--<Image
+                Margin="0"
+                Aspect="AspectFit"
+                HeightRequest="80"
+                HorizontalOptions="End"
+                Source="NewsIcon.png"
+                VerticalOptions="Start"
+                WidthRequest="80" />-->
+            <StackLayout VerticalOptions="CenterAndExpand">
+               
+
+                <ffimageloading:SvgCachedImage
+                    Margin="0"
+                    Aspect="AspectFill"
+                    HeightRequest="105"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsDeaf}"
+                    Source="{Binding LocalNewsGIF}"
+                    VerticalOptions="Center"
+                    WidthRequest="105" />
+               <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding LocalNewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False">
+                <StackLayout
+                    Margin="20,0,20,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    WidthRequest="200">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{x:Static constants:Fonts.FontBold}"
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{translate:Translate LocalNews}"
+                        TextColor="{Binding LocalNewsTextColor}"
+                        VerticalOptions="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LocalNewsSelectedCommand}" />
+                    </StackLayout.GestureRecognizers>
+
+                </StackLayout>
+                   </Frame>
+                <ffimageloading:SvgCachedImage
+                    Margin="0"
+                    Aspect="AspectFill"
+                    HeightRequest="105"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsDeaf}"
+                    Source="{Binding InternationalNewsGIF}"
+                    VerticalOptions="Center"
+                    WidthRequest="105" />
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding InternationalNewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False">
+                <StackLayout
+                    Margin="15,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    WidthRequest="200">
+
+                    <Label
+                        Margin="20,0"
+                        FontFamily="{x:Static constants:Fonts.FontBold}"
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{translate:Translate InternationalNews}"
+                        TextColor="{Binding InternationalNewsTextColor}"
+                        VerticalOptions="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InternationalNewsSelectedCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                        </Frame>
+                <ffimageloading:SvgCachedImage
+                    Margin="0"
+                    Aspect="AspectFill"
+                    HeightRequest="105"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsDeaf}"
+                    Source="{Binding ThirdNewsGIF}"
+                    VerticalOptions="Center"
+                    WidthRequest="105" />
+                                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding ThirdNewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False">
+                <StackLayout
+                    Margin="15,0"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    WidthRequest="200">
+
+                    <Label
+                        Margin="20,0"
+                        FontFamily="{x:Static constants:Fonts.FontBold}"
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{translate:Translate ThirdNews}"
+                        TextColor="{Binding ThirdNewsTextColor}"
+                        VerticalOptions="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ThirdNewsSelectedCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                                        </Frame>
+            </StackLayout>
+            <!--<Image
+                Margin="0"
+                Aspect="AspectFit"
+                HeightRequest="80"
+                HorizontalOptions="Start"
+                Source="DownCurve.png"
+                VerticalOptions="EndAndExpand"
+                WidthRequest="80" />-->
+        </Grid>
+    </ScrollView>
+</bases:BaseContentPage>

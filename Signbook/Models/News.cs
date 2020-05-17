@@ -48,9 +48,9 @@ namespace Signbook.Models
             }
         }
 
-        private string _img;
+        private Uri _img;
 
-        public string Img
+        public Uri Img
         {
             get => _img; set
             {

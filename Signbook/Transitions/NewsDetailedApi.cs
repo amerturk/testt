@@ -12,7 +12,7 @@ namespace Signbook.Transitions
         public string Title { get; set; }
 
         [JsonProperty("Img")]
-        public string Img { get; set; }
+        public Uri Img { get; set; }
 
         [JsonProperty("Date")]
         public string Date { get; set; }
@@ -23,10 +23,13 @@ namespace Signbook.Transitions
         public string NewsId { get; set; }
         public override TRealmObject ToModel<TRealmObject>()
         {
+
             string DefaultImg = "https://storage.googleapis.com/signboo/news/newsimages/defimage.png";
+            Uri myuri = new Uri(DefaultImg);
+           
             if (this.Img != null)
             {
-                DefaultImg = this.Img;
+                myuri = this.Img;
             }
 
             var mainNews = new Models.NewsDetailed
@@ -34,7 +37,7 @@ namespace Signbook.Transitions
                 Title = this.Title,
                 Date = this.Date,
                 Url = this.Url,
-                Img = DefaultImg,
+                Img = myuri,
                 NewsId = this.NewsId,
             };
             return mainNews as TRealmObject;

@@ -14,20 +14,6 @@
     BackgroundColor="White"
     FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
     mc:Ignorable="d">
-    <Image Margin="10,10,10,10"                
-                           
-                                   WidthRequest="100"
-                                   HeightRequest="100"
-                           VerticalOptions="Center"
-                           Grid.Row="0" Grid.Column="0">
-        <Image.Source>
-            <UriImageSource
-                                         CacheValidity="10"
-                        CachingEnabled="True"
-                        Uri="https://storage.googleapis.com/signboo/news/newsimages/defimage.png" />
-        </Image.Source>
-    </Image>
-
     <StackLayout Spacing="0">
             <Grid HeightRequest="60" Margin="10,10,10,0" VerticalOptions="Start">
                 <StackLayout VerticalOptions="Center"
@@ -148,6 +134,7 @@
                                    WidthRequest="100"
                                    HeightRequest="100"
                            VerticalOptions="Center"
+                                       Aspect="AspectFit"
                            Grid.Row="0" Grid.Column="0">
                                     <Image.Source>
                                         <UriImageSource

@@ -128,6 +128,7 @@
                                 <Image Margin="10,10,10,10"                
                            Source="{Binding Img}"
                                    WidthRequest="100"
+                                       Aspect="AspectFill"
                                    HeightRequest="100"
                            VerticalOptions="Center"
                            Grid.Row="0" Grid.Column="0"/>

@@ -29,7 +29,8 @@
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>Apple Distribution: Amer Turk (VN4A7WYM59)</CodesignKey>
     <CodesignProvision>Signbook AD HOOK For Online Test</CodesignProvision>
-    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>

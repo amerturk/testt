@@ -117,7 +117,7 @@
                     <ViewCell>
                         <StackLayout Margin="15,15,15,1">
 
-                            <Grid  BackgroundColor="Red">
+                            <Grid  BackgroundColor="Green">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>

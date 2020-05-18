@@ -128,6 +128,8 @@
                            Grid.Row="0" Grid.Column="0">
                                 <Image.Source>
                                     <UriImageSource
+                                         CacheValidity="10"
+                        CachingEnabled="True"
                         Uri="https://storage.googleapis.com/signboo/news/newsimages/defimage.png" />
                                 </Image.Source>
                             </Image>
@@ -148,6 +150,8 @@
                            Grid.Row="0" Grid.Column="0">
                                     <Image.Source>
                                         <UriImageSource
+                                             CacheValidity="10"
+                        CachingEnabled="True"
                         Uri="{Binding Img}" />
                                     </Image.Source>
                                 </Image>

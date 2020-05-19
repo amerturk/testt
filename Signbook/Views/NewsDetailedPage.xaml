@@ -9,11 +9,17 @@
     xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:translate="clr-namespace:Signbook.Extensions"
+     xmlns:converter="clr-namespace:WhiteMvvm.Converters;assembly=WhiteMvvm"
     x:Name="page"
     AutoWireViewModel="True"
     BackgroundColor="White"
     FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
     mc:Ignorable="d">
+    <bases:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ImageSourceConverter x:Key="Converter"/>
+        </ResourceDictionary>
+    </bases:BaseContentPage.Resources>
     <StackLayout Spacing="0">
             <Grid HeightRequest="60" Margin="10,10,10,0" VerticalOptions="Start">
                 <StackLayout VerticalOptions="Center"
@@ -130,19 +136,12 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Image Margin="10,10,10,10"                
-                           
+                           Source="{Binding Img, Converter={StaticResource Converter}}"
                                    WidthRequest="100"
+                                       Aspect="AspectFill"
                                    HeightRequest="100"
                            VerticalOptions="Center"
-                                       Aspect="AspectFit"
-                           Grid.Row="0" Grid.Column="0">
-                                    <Image.Source>
-                                        <UriImageSource
-                                             CacheValidity="10"
-                        CachingEnabled="True"
-                        Uri="{Binding Img}" />
-                                    </Image.Source>
-                                </Image>
+                           Grid.Row="0" Grid.Column="0"/>
                                 <Label
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="18"

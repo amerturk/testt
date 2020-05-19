@@ -9,12 +9,19 @@
     xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:translate="clr-namespace:Signbook.Extensions"
+    xmlns:converter="clr-namespace:WhiteMvvm.Converters;assembly=WhiteMvvm"
     x:Name="page"
     AutoWireViewModel="True"
     BackgroundColor="White"
     FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
     mc:Ignorable="d">
-    <StackLayout Spacing="0">
+
+    <bases:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ImageSourceConverter x:Key="Converter"/>
+        </ResourceDictionary>
+    </bases:BaseContentPage.Resources>
+<StackLayout Spacing="0">
             <Grid HeightRequest="60" Margin="10,10,10,0" VerticalOptions="Start">
                 <StackLayout VerticalOptions="Center"
                              HorizontalOptions="End">
@@ -117,7 +124,7 @@
                     <ViewCell>
                         <StackLayout Margin="15,15,15,1">
 
-                            <Grid  BackgroundColor="Green">
+                            <Grid >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
@@ -126,7 +133,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Image Margin="10,10,10,10"                
-                           Source="{Binding Img}"
+                           Source="{Binding Img, Converter={StaticResource Converter}}"
                                    WidthRequest="100"
                                        Aspect="AspectFill"
                                    HeightRequest="100"

@@ -11,7 +11,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(Image), typeof(MyImageRenderer))]
+//[assembly: ExportRenderer(typeof(Image), typeof(MyImageRenderer))]
 
 namespace Signbook.iOS.Renders
 {
@@ -19,29 +19,41 @@ namespace Signbook.iOS.Renders
     {
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            base.OnElementPropertyChanged(sender, e);
-
-            if (e.PropertyName == "IsLoading")
+            try
             {
-                var handler = Xamarin.Forms.Internals.Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(Element.Source);
-                if (!Element.IsLoading && Control.Image == null && handler is ImageLoaderSourceHandler)
+                base.OnElementPropertyChanged(sender, e);
+
+                if (e.PropertyName == "IsLoading")
                 {
-                    var imageLoader = Element.Source as UriImageSource;
-                    var imgPath = imageLoader.Uri.OriginalString;
-                    NSUrlSession session = NSUrlSession.SharedSession;
-                    var task = session.CreateDataTask(new NSUrl(imgPath), (data, response, error) =>
+                    Device.BeginInvokeOnMainThread(() =>
                     {
-                        InvokeOnMainThread(() =>
+                        if (Element != null && Element.Source != null)
+                        { 
+                        var handler = Xamarin.Forms.Internals.Registrar.Registered.GetHandlerForObject<IImageSourceHandler>(Element.Source);
+                        if (!Element.IsLoading && Control.Image == null && handler is ImageLoaderSourceHandler)
                         {
-                            if (data != null)
+                            var imageLoader = Element.Source as UriImageSource;
+                            var imgPath = imageLoader.Uri.OriginalString;
+                            NSUrlSession session = NSUrlSession.SharedSession;
+                            var task = session.CreateDataTask(new NSUrl(imgPath), (data, response, error) =>
                             {
-                                Control.Image = UIImage.LoadFromData(data);
-                            }
-                        });
+
+                                if (data != null)
+                                {
+                                    Control.Image = UIImage.LoadFromData(data);
+                                }
+
+                            });
+                            task.Resume();
+                        }
+                    }
                     });
-                    task.Resume();
                 }
             }
+            catch (Exception ex)
+            {             
+            }
+        
         }
     }
 }

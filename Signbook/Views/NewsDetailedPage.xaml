@@ -15,6 +15,7 @@
     BackgroundColor="White"
     FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
     mc:Ignorable="d">
+    
     <bases:BaseContentPage.Resources>
         <ResourceDictionary>
             <converter:ImageSourceConverter x:Key="Converter"/>
@@ -109,7 +110,6 @@
         </Grid>-->
         <ListView
             Margin="0,5,0,0"
-            BackgroundColor="#F9F9F9"
             HasUnevenRows="True"
             IsPullToRefreshEnabled="True"
             IsRefreshing="{Binding IsRefreshing}"
@@ -123,9 +123,6 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Margin="15,15,15,1">
-
-                            
-
                             
                             <Grid BackgroundColor="{Binding IsReadColor}" >
                                 <Grid.RowDefinitions>

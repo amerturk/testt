@@ -80,6 +80,7 @@
     <Compile Include="Renders\BottomNavTabPageiOS.cs" />
     <Compile Include="Renders\ExtEditorIOS.cs" />
     <Compile Include="Renders\ExtEntryIOS.cs" />
+    <Compile Include="Renders\MyImageRenderer.cs" />
     <Compile Include="Renders\NotificationsInterface.cs" />
     <Compile Include="Renders\StatusBarStyleManagerIOS.cs" />
     <None Include="Entitlements.plist" />

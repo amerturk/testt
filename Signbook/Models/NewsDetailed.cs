@@ -54,7 +54,7 @@ namespace Signbook.Models
         {
             get => _img; set
             {
-                _img = new Uri("https://storage.googleapis.com/signboo/news/newsimages/expo.jpg");
+                _img = value;
                 OnPropertyChanged();
             }
         }

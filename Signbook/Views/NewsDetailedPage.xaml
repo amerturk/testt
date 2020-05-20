@@ -142,11 +142,10 @@
                                 <Label
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="18"
-                                FlowDirection="RightToLeft"
-                                HorizontalOptions="Start"
+                                FlowDirection="LeftToRight"
                                 Text="{Binding Title}"
                                 TextColor="Gray"
-                                HorizontalTextAlignment="Start"
+                                HorizontalTextAlignment="End"
                                 VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
                                 
                             </Grid>

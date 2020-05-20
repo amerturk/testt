@@ -33,7 +33,7 @@
                     HeightRequest="100"
                     HorizontalOptions="Center"
                     Source="NewsIcon.png"
-                    VerticalOptions="Start"
+                    VerticalOptions="Start" 
                     WidthRequest="100" />
             </Grid>
             <!--<Image

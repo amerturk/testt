@@ -49,13 +49,13 @@
     <true/>
   </dict>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>10.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>Signbook</string>
 	<key>CFBundleIdentifier</key>
 	<string>sign.com.com</string>
 	<key>CFBundleVersion</key>
-	<string>16.0</string>
+	<string>17.0</string>
 	<key>CFBundleName</key>
 	<string>Signbook</string>
   <key>CFBundleLocalizations</key>

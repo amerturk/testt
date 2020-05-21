@@ -34,11 +34,22 @@
 	<string>The application need to access your location to check if you can do the video call</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>The application need to access your location to check if you can do the video call</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow access to the camera to scan barcodes</string>
+  <key>NSCameraUsageDescription</key>
+  <string>Please allow access to the camera to scan barcodes</string>  
 	<key>NSCalendarsUsageDescription</key>
 	<string>Please allow access to the calendar to do reservations</string>
-	<key>UIAppFonts</key>
+  <key>NSContactsUsageDescription </key>
+  <string>Please allow access to contacts to invite them</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Please allow access to the microphone so you can do the video call</string>
+  <key>NSAppleMusicUsageDescription</key>
+  <string>Please allow access to the music so you can hear the videos</string>
+  <key>NSSiriUsageDescription</key>
+  <string>Please allow access to Siri to use it incase you need to use Siri</string>
+  
+
+
+  <key>UIAppFonts</key>
 	<array>
 		<string>Tajawal-Light.ttf</string>
 		<string>Tajawal-Medium.ttf</string>
@@ -55,7 +66,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>sign.com.com</string>
 	<key>CFBundleVersion</key>
-	<string>17.0</string>
+	<string>18.0</string>
 	<key>CFBundleName</key>
 	<string>Signbook</string>
   <key>CFBundleLocalizations</key>

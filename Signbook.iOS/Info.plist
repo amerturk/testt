@@ -30,6 +30,8 @@
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+  <key>NSContactsUsageDescription</key>
+  <string>Please allow access to contacts to invite them</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The application need to access your location to check if you can do the video call</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -38,8 +40,7 @@
   <string>Please allow access to the camera to scan barcodes</string>  
 	<key>NSCalendarsUsageDescription</key>
 	<string>Please allow access to the calendar to do reservations</string>
-  <key>NSContactsUsageDescription </key>
-  <string>Please allow access to contacts to invite them</string>
+  
   <key>NSMicrophoneUsageDescription</key>
   <string>Please allow access to the microphone so you can do the video call</string>
   <key>NSAppleMusicUsageDescription</key>
@@ -66,7 +67,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>sign.com.com</string>
 	<key>CFBundleVersion</key>
-	<string>18.0</string>
+	<string>19.0</string>
 	<key>CFBundleName</key>
 	<string>Signbook</string>
   <key>CFBundleLocalizations</key>

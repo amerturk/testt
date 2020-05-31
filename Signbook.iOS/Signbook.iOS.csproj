@@ -70,6 +70,7 @@
     <CodesignProvision>Signbook AD HOOK For Online Test</CodesignProvision>
     <BuildIpa>true</BuildIpa>
     <MtouchLink>None</MtouchLink>
+    <MtouchExtraArgs>--linkskip=Xamarin.Essentials</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />

@@ -67,7 +67,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>sign.com.com</string>
 	<key>CFBundleVersion</key>
-	<string>20.0</string>
+	<string>21.0</string>
 	<key>CFBundleName</key>
 	<string>Signbook</string>
   <key>CFBundleLocalizations</key>

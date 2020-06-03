@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Signbook.Constants;
 using Signbook.Views;
 using WhiteMvvm.Bases;
-using Xamarin.Agora.Full.Forms;
 using Xamarin.Forms;
 
 namespace Signbook.ViewModels
@@ -13,7 +12,6 @@ namespace Signbook.ViewModels
     public class RoomViewModel : BaseViewModel
     {
         private bool _isEnded = false;
-        private IAgoraService _agoraService;
 
         private bool _isAudioMute;
         public bool IsAudioMute
@@ -87,61 +85,38 @@ namespace Signbook.ViewModels
 
         private void TapVideo(object param)
         {
-            if (param is AgoraVideoView view)
-            {
-                //cycle through all video display modes
-                var mode = (int)view.Mode + 1;
-                view.Mode = (VideoDisplayMode)(mode < 4 ? mode : 1);
-            }
+           
         }
 
         private void SwitchCamera(object param)
         {
-            IsCameraSwitched = !IsCameraSwitched;
-            _agoraService.ToggleCamera();
+            
         }
 
         private void OnSpeaker(object param)
         {
-            IsSpeakerEnabled = !IsSpeakerEnabled;
-            _agoraService.SetSpeakerEnabled(IsSpeakerEnabled);
+            
         }
 
         private void OnAudioMute(object param)
         {
-            IsAudioMute = !IsAudioMute;
-            _agoraService.SetAudioMute(IsAudioMute);
+            
         }
 
         private void OnVideoMute(object param)
         {
-            IsVideoMute = !IsVideoMute;
-            _agoraService.SetVideoMute(IsVideoMute);
+          
 
         }
 
         private void OnEndSession(object param)
         {
-            if (_isEnded)
-            {
-                return;
-            }
-            _isEnded = true;
-            _agoraService.EndSession();
-            NavigationService.Navigation.PopAsync();
+            
         }
 
         public void Init()
         {
-            _isEnded = false;
-            if (_agoraService == null)
-            {
-                _agoraService = AgoraService.Current;
-                _agoraService.JoinChannelSuccess += (uid) => { };
-                _agoraService.OnDisconnected += OnDisconnected;
-                _agoraService.OnNewStream += OnNewStream;
-                _agoraService.StartSession(Room, Consts.AgoraAPI, Consts.Token, webSdkInteroperability: true);
-            }
+           
         }
 
         protected override Task OnDisappearing()

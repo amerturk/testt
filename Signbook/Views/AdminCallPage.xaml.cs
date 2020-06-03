@@ -64,7 +64,7 @@ namespace Signbook.Views
             }
         }
         
-        async Task<bool> RequestPermission(Plugin.Permissions.Abstractions.Permission permission)
+       /* async Task<bool> RequestPermission(Plugin.Permissions.Abstractions.Permission permission)
         {
             var permissionStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(permission);
             if (permissionStatus != PermissionStatus.Granted)
@@ -78,18 +78,18 @@ namespace Signbook.Views
                 return permissionStatus == PermissionStatus.Granted;
             }
             return permissionStatus == PermissionStatus.Granted;
-        }
+        }*/
 
 
         public async void OpenVideoCallPage()
         {
-            var isPermissioned = await RequestPermission(Permission.Microphone);
+           /*ar isPermissioned = await RequestPermission(Permission.Microphone);
             if (isPermissioned)
             {
                 var browser = new VideoCallWebView();
                 browser.Source = "https://storage.googleapis.com/signboo/vidcall/TokBox/tokbox.html";
                 Content = browser;
-            }
+            }*/
 
         }
 

@@ -13,7 +13,6 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-using Nancy.Json;
 using WhiteMvvm.Validations;
 using System.Json;
 using Xamarin.Forms.Internals;

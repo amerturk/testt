@@ -3,7 +3,6 @@
     x:Class="Signbook.Views.RoomPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:agora="clr-namespace:Xamarin.Agora.Full.Forms;assembly=Xamarin.Agora.Full.Forms"
     xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
     xmlns:converters="clr-namespace:WhiteMvvm.Converters;assembly=WhiteMvvm"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -31,13 +30,6 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <agora:AgoraVideoView
-                        x:Name="RemoteVideo"
-                        Grid.ColumnSpan="3"
-                        HeightRequest="1000"
-                        IsStatic="true"
-                        Mode="Adaptive"
-                        VerticalOptions="FillAndExpand" />
                     <Image
                         Aspect="AspectFit"
                         HeightRequest="30"
@@ -75,10 +67,7 @@
                     HorizontalOptions="End"
                     VerticalOptions="End"
                     WidthRequest="150">
-                    <agora:AgoraVideoView
-                        x:Name="LocalVideo"
-                        IsStatic="true"
-                        StreamUID="0" />
+                
                     <Image
                         Aspect="AspectFit"
                         HeightRequest="30"

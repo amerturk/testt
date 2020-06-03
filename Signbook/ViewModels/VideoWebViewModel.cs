@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Signbook.Constants;
 using Signbook.Views;
 using WhiteMvvm.Bases;
-using Xamarin.Agora.Full.Forms;
 using Xamarin.Forms;
 
 namespace Signbook.ViewModels
@@ -90,12 +89,7 @@ namespace Signbook.ViewModels
 
         private void TapVideo(object param)
         {
-            if (param is AgoraVideoView view)
-            {
-                //cycle through all video display modes
-              //  var mode = (int)view.Mode + 1;
-             //   view.Mode = (VideoDisplayMode)(mode < 4 ? mode : 1);
-            }
+            
         }
 
         private void SwitchCamera(object param)

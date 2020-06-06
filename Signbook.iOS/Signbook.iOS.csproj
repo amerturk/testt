@@ -64,13 +64,14 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>Apple Distribution: Amer Turk (VN4A7WYM59)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Signbook AD HOOK For Online Test</CodesignProvision>
     <BuildIpa>true</BuildIpa>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchExtraArgs>--linkskip=Xamarin.Essentials</MtouchExtraArgs>
+    <MtouchExtraArgs>--linksdkonly</MtouchExtraArgs>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -82,7 +83,6 @@
     <Compile Include="Renders\BottomNavTabPageiOS.cs" />
     <Compile Include="Renders\ExtEditorIOS.cs" />
     <Compile Include="Renders\ExtEntryIOS.cs" />
-    <Compile Include="Renders\MyImageRenderer.cs" />
     <Compile Include="Renders\NotificationsInterface.cs" />
     <Compile Include="Renders\StatusBarStyleManagerIOS.cs" />
     <None Include="Entitlements.plist" />
@@ -177,7 +177,7 @@
       <Version>2.3.5</Version>
     </PackageReference>
     <PackageReference Include="Plugin.Permissions">
-      <Version>3.0.0.12</Version>
+      <Version>6.0.1</Version>
     </PackageReference>
     <PackageReference Include="Plugin.Share">
       <Version>7.1.1</Version>

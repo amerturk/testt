@@ -23,6 +23,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIStatusBarHidden</key>
+  <key>UIStatusBarHidden</key>
 	<false/>
 	<key>prefersStatusBarHidden</key>
 	<false/>

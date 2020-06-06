@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cirrious.FluentLayouts.Touch;
 using Firebase.Core;
 using Foundation;
 
@@ -15,6 +14,7 @@ using Microsoft.AppCenter.Crashes;
 using Signbook.Controls;
 using Signbook.iOS.Renders;
 using Signbook.Services.Localization;
+using Cirrious.FluentLayouts.Touch;
 
 [assembly: ExportRenderer(typeof(ExtEditor), typeof(ExtEditorIOS))]
 

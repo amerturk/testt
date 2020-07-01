@@ -137,7 +137,25 @@ namespace Signbook.ViewModels
                     if (Application.Current.Properties["UserName"] != "" && Application.Current.Properties["UserID"] != "")
                     {
                         // he is logged in and the values are not null
-                        NavigationService.NavigateToAsync<MainCallViewModel>();
+
+                        //check what is the user country 
+                        var Country = Application.Current.Properties["SelectedCountry"] as string;
+                        if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
+                        {
+                            
+                            if (Country == "Jordan")
+                            {
+                                //Jordanian User
+                                NavigationService.NavigateToAsync<MainCallJordanViewModel>();
+                            }
+                            else {
+                                //Omani User
+                                NavigationService.NavigateToAsync<MainCallViewModel>();
+                            }
+
+
+
+                        }                           
                         VcallBackgroundColor = Color.White;
                         VcallTextColor = Color.Gray;
 

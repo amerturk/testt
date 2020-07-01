@@ -39,8 +39,14 @@
     <Compile Update="Views\AdminCallPage.xaml.cs">
       <DependentUpon>AdminCallPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\DoCallJordanPage.xaml.cs">
+      <DependentUpon>DoCallJordanPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ForgetPassPage.xaml.cs">
       <DependentUpon>ForgetPassPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainCallJordanPage.xaml.cs">
+      <DependentUpon>MainCallJordanPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\NewsDetailedPage.xaml.cs">
       <DependentUpon>NewsDetailedPage.xaml</DependentUpon>
@@ -65,6 +71,9 @@
     </Compile>
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SignupJordanPage.xaml.cs">
+      <DependentUpon>SignupJordanPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>

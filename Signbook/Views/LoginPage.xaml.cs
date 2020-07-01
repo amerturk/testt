@@ -83,16 +83,33 @@ namespace Signbook.Views
         {
             try
             {
-                var loginurl = string.Format("http://omnapp.signbook.co/api/SitesApis/login?UserName={0}&Password={1}", Username, Password);
+                var loginurl = "";
+                var Country = Application.Current.Properties["SelectedCountry"] as string;
+                if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
+                {
 
-                //var loginurl = "http://omnapp.signbook.co/api/SitesApis/login?UserName=Hisham&Password=Aa1234567";
-                //in active user "http://omnapp.signbook.co/api/SitesApis/login?UserName=Ashraf&Password=Ashraf";
-                //active user  "http://omnapp.signbook.co/api/SitesApis/login?UserName=Hisham&Password=Aa1234567";
+                    if (Country == "Jordan")
+                    {
+                        //Jordanian User
+                         loginurl = string.Format("http://jodata.signbook.co/api/SitesApis/login?UserName={0}&Password={1}", Username, Password);
+
+                    }
+                    else
+                    {
+                        //Omani User
+                         loginurl = string.Format("http://omnapp.signbook.co/api/SitesApis/login?UserName={0}&Password={1}", Username, Password);
+
+                    }
+                }
+
+                    //var loginurl = "http://omnapp.signbook.co/api/SitesApis/login?UserName=Hisham&Password=Aa1234567";
+                    //in active user "http://omnapp.signbook.co/api/SitesApis/login?UserName=Ashraf&Password=Ashraf";
+                    //active user  "http://omnapp.signbook.co/api/SitesApis/login?UserName=Hisham&Password=Aa1234567";
 
 
-                // WebClient client = new WebClient();
-                // client.UploadString(loginurl, inputJson);
-                string UserName = "";
+                    // WebClient client = new WebClient();
+                    // client.UploadString(loginurl, inputJson);
+                    string UserName = "";
                 string UsedID = "";
                 
 

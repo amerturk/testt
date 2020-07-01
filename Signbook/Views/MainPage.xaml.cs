@@ -16,7 +16,7 @@ namespace Signbook.Views
         {
             InitializeComponent();
 
-            if (!IsUserOmaniUser())
+            if (!IsUserOmaniOrJordanianUser())
             {
                 callBtnMain.IsVisible = false;
             }
@@ -36,7 +36,7 @@ namespace Signbook.Views
 
         }
 
-        private bool IsUserOmaniUser()
+        private bool IsUserOmaniOrJordanianUser()
         {
             //Application.Current.Properties.Add("SelectedCountry", "Egypt");
             if (Application.Current.Properties.ContainsKey("SelectedCountry"))
@@ -47,6 +47,8 @@ namespace Signbook.Views
                     switch (Country)
                     {
                         case "Omman":
+                            return true;
+                        case "Jordan":
                             return true;
                         default:
                             return false;

@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <bases:BaseContentPage
+    x:Class="Signbook.Views.SignupJordanPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bases="clr-namespace:WhiteMvvm.Bases;assembly=WhiteMvvm"
+    xmlns:constants="clr-namespace:Signbook.Constants;assembly=Signbook"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:gifImage="clr-namespace:FFImageLoading;assembly=FFImageLoading"
+    xmlns:local="clr-namespace:Signbook.Services.Localization;assembly=Signbook"
+    xmlns:customControls="clr-namespace:Signbook.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:translate="clr-namespace:Signbook.Extensions"
+    AutoWireViewModel="True"
+    BackgroundColor="White"
+    FlowDirection="{Binding AppFlowDirection, Source={x:Static local:LocalizationService.Current}}"
+    mc:Ignorable="d">
+    <bases:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>           
+        </ResourceDictionary>
+    </bases:BaseContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                
+
+                <StackLayout x:Name="RegistartionForm" IsVisible="True" VerticalOptions="Center">
+                    <Image
+                    Margin="0,50,0,0"
+                    Aspect="AspectFit"
+                    HeightRequest="90"
+                    HorizontalOptions="Center"
+                    Source="SignbookLogo.png"
+                    VerticalOptions="Start"
+                    WidthRequest="90" />
+
+
+                            <Label 
+                                Margin="0,0"
+                                x:Name="Responceformlbl"
+                                Text=" "
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="15"
+                                TextColor="Red"
+                                WidthRequest="300"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                    
+                      
+                            <Label 
+                                Margin="0,0"
+                                x:Name="ConfirmationLabel"
+                                Text=" "
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="15"
+                                TextColor="Green"
+                                WidthRequest="300"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#ffffff"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            WidthRequest="130">
+                            <Label 
+                                Margin="0,0 "
+                                Text="تسجيل حساب"
+                                FlowDirection="RightToLeft"
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="300"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                        </StackLayout>
+                    </Frame>
+                    
+                    
+                    
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="user.png"
+                                WidthRequest="50" />
+
+                            <customControls:ExtEntry 
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="240"
+                                x:Name="fName"
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                FlowDirection="RightToLeft"
+                                Placeholder="اسم المستخدم"
+                                PlaceholderColor="{Binding BarcodeTextColor}"
+                                VerticalOptions="Center">
+                            </customControls:ExtEntry>
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="False">
+                        <StackLayout
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="IdCard.png"
+                                WidthRequest="50" />
+
+                            <customControls:ExtEntry 
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="240"
+                                x:Name="IdNumber"
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                FlowDirection="RightToLeft"
+                                Placeholder="رقم بطاقة الاعاقة"
+                                PlaceholderColor="{Binding BarcodeTextColor}"                                
+                                VerticalOptions="Center">
+                            </customControls:ExtEntry>
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="False">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="number.png"
+                                WidthRequest="50" />
+
+                            <customControls:ExtEntry
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="240"                                
+                                Keyboard="Numeric"
+                                x:Name="uPhone"
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                FlowDirection="LeftToRight"
+                                Placeholder="رقم الهاتف"                                 
+                                PlaceholderColor="{Binding BarcodeTextColor}"
+                                VerticalOptions="Center">
+                            </customControls:ExtEntry>
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="email.png"
+                                WidthRequest="50" />
+
+                            <customControls:ExtEntry
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="240"                                
+                                Keyboard="Email"
+                                x:Name="uEmail"
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                FlowDirection="LeftToRight"
+                                Placeholder="البريد الالكتروني"                                 
+                                PlaceholderColor="{Binding BarcodeTextColor}"
+                                VerticalOptions="Center">
+                            </customControls:ExtEntry>
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#384B6C"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="50"
+                                HorizontalOptions="Start"
+                                Source="pass.png"
+                                WidthRequest="50" />
+
+                            <customControls:ExtEntry 
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="240"
+                                x:Name="uPassword"
+                                IsPassword="True"
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                FlowDirection="LeftToRight"
+                                Placeholder="كلمة المرور"
+                                PlaceholderColor="{Binding BarcodeTextColor}"
+                                VerticalOptions="Center">
+                            </customControls:ExtEntry>
+
+                        </StackLayout>
+                    </Frame>                  
+
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#ffffff"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+
+
+                            <Button 
+                                Margin="10,0 "
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                x:Name="regbutton"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="300"
+                                Text="تسجيل"
+                                VerticalOptions="Center"
+                                Clicked="RegisterUser"
+                                />
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        Margin="20,10,20,0"
+                        Padding="15"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="#ffffff"
+                        CornerRadius="5"
+                        HasShadow="False"
+                        IsVisible="{Binding IsDeaf}">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+
+
+                            <Button 
+                                Margin="10,0 "
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="{Binding BarcodeTextColor}"
+                                WidthRequest="300"
+                                Text="الرجوع"
+                                VerticalOptions="Center"
+                                Command="{Binding MainPageBackClickCommand}"
+                                />
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame                        
+                        IsVisible="True"
+                        BackgroundColor="{Binding NewsBackgroundColor}"
+                        BorderColor="White"
+                        CornerRadius="5"
+                        HasShadow="False">
+                        <StackLayout
+                            Margin="10,0"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            WidthRequest="300">
+                            <Label 
+                                Margin="0,0"                                
+                                Text=" "
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static constants:Fonts.FontBold}"
+                                FontSize="20"
+                                TextColor="White"
+                                WidthRequest="300"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</bases:BaseContentPage>

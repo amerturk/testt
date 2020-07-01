@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Signbook.Constants;
 using Signbook.Views;
 using WhiteMvvm.Bases;
@@ -9,13 +10,16 @@ using Xamarin.Forms;
 
 namespace Signbook.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class SignupJordanViewModel : BaseViewModel
     {
 
 
+        
+
+        
 
         private bool _isEnded = false;
-        // private IAgoraService _agoraService;
+       // private IAgoraService _agoraService;
 
         private bool _isAudioMute;
         public bool IsAudioMute
@@ -69,9 +73,9 @@ namespace Signbook.ViewModels
         public Command SpeakerCommand { get; }
         public Command SwitchCameraCommand { get; }
         public Command VideoTapCommand { get; }
-        public Command MainPagesClickCommand { get; set; }
 
-        public LoginViewModel()
+        public ICommand MainPageBackClickCommand { get; set; }
+        public SignupJordanViewModel()
         {
             Room = "DesignTimeRoom";
             EndSessionCommand = new Command(OnEndSession);
@@ -80,7 +84,8 @@ namespace Signbook.ViewModels
             SpeakerCommand = new Command(OnSpeaker);
             SwitchCameraCommand = new Command(SwitchCamera);
             VideoTapCommand = new Command(TapVideo);
-            MainPagesClickCommand = new Command(backclicked);
+            MainPageBackClickCommand = new Command(backBtnclicked);
+
         }
 
         protected override Task InitializeAsync(object navigationData)
@@ -88,86 +93,39 @@ namespace Signbook.ViewModels
             Init();
             return base.InitializeAsync(navigationData);
         }
-        private void backclicked(object param)
+
+        private void backBtnclicked(object param)
         {
-            NavigationService.NavigateToAsync<MainViewModel>();
-        }
-        private void TapVideo(object param)
-        {
-           
-        }
-
-        public async void goToSignupPage()
-        {
-
-            var Country = Application.Current.Properties["SelectedCountry"] as string;
-            if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
-            {
-
-                if (Country == "Jordan")
-                {
-                    //Jordanian User
-                    NavigationService.NavigateToAsync<SignupJordanViewModel>();
-                }
-                else
-                {
-                    //Omani User
-                    NavigationService.NavigateToAsync<SignupViewModel>();
-                }
-            }
-
+            Application.Current.MainPage.Navigation.PopAsync();
+           // NavigationService.NavigateToAsync<LoginViewModel>();
             
         }
-        public async void GoToForgetPass()
+            private void TapVideo(object param)
         {
-            NavigationService.NavigateToAsync<ForgetPassViewModel>();
-        }
-
-        
-
-        public async void goToMainVideoPage()
-        {
-
-            var Country = Application.Current.Properties["SelectedCountry"] as string;
-            if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
-            {
-
-                if (Country == "Jordan")
-                {
-                    //Jordanian User
-                    NavigationService.NavigateToAsync<MainCallJordanViewModel>();
-                }
-                else
-                {
-                    //Omani User
-                    NavigationService.NavigateToAsync<MainCallViewModel>();
-                }
-            }
-
             
         }
 
-            private void SwitchCamera(object param)
+        private void SwitchCamera(object param)
         {
-            // IsCameraSwitched = !IsCameraSwitched;
-            // _agoraService.ToggleCamera();
+           // IsCameraSwitched = !IsCameraSwitched;
+           // _agoraService.ToggleCamera();
         }
 
         private void OnSpeaker(object param)
         {
             //IsSpeakerEnabled = !IsSpeakerEnabled;
-            // _agoraService.SetSpeakerEnabled(IsSpeakerEnabled);
+           // _agoraService.SetSpeakerEnabled(IsSpeakerEnabled);
         }
 
         private void OnAudioMute(object param)
         {
-            // IsAudioMute = !IsAudioMute;
+           // IsAudioMute = !IsAudioMute;
             //_agoraService.SetAudioMute(IsAudioMute);
         }
 
         private void OnVideoMute(object param)
         {
-            // IsVideoMute = !IsVideoMute;
+           // IsVideoMute = !IsVideoMute;
             //_agoraService.SetVideoMute(IsVideoMute);
 
         }
@@ -186,7 +144,7 @@ namespace Signbook.ViewModels
         public void Init()
         {
 
-
+            
 
 
             //_isEnded = false;
@@ -199,7 +157,7 @@ namespace Signbook.ViewModels
         private void OnDisappearing()
         {
             //OnEndSession(false);
-            //return base.OnDisappearing();
+           //return base.OnDisappearing();
         }
 
         private void OnNewStream(uint arg1, int arg2, int arg3)

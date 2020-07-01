@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Signbook.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class MainCallJordanViewModel : BaseViewModel
     {
 
 
@@ -61,6 +61,12 @@ namespace Signbook.ViewModels
             }
         }
 
+        private Color _DirectCallBackgroundColor;
+        private Color _DirectCallTextColor;
+        private Color _SchedualeBackgroundColor;
+        private Color _SchedualeTextColor;
+        private Color _LogoutBackgroundColor;
+        private Color _LogoutTextColor;
         public string Room { get; set; }
 
         public Command EndSessionCommand { get; }
@@ -71,7 +77,44 @@ namespace Signbook.ViewModels
         public Command VideoTapCommand { get; }
         public Command MainPagesClickCommand { get; set; }
 
-        public LoginViewModel()
+        public Command GoToDoCallPage { get; set; }
+
+        public Command GoToScheduleCallPage { get; set; }
+
+        public Command LogoutCommand { get; set; }
+
+        public Color DirectCallBackgroundColor
+        {
+            get { return _DirectCallBackgroundColor; }
+            set { _DirectCallBackgroundColor = value; OnPropertyChanged(); }
+        }
+        public Color DirectCallTextColor
+        {
+            get { return _DirectCallTextColor; }
+            set { _DirectCallTextColor = value; OnPropertyChanged(); }
+        }
+        public Color SchedualeBackgroundColor
+        {
+            get { return _SchedualeBackgroundColor; }
+            set { _SchedualeBackgroundColor = value; OnPropertyChanged(); }
+        }
+        public Color SchedualeTextColor
+        {
+            get { return _SchedualeTextColor; }
+            set { _SchedualeTextColor = value; OnPropertyChanged(); }
+        }
+        public Color LogoutBackgroundColor
+        {
+            get { return _LogoutBackgroundColor; }
+            set { _LogoutBackgroundColor = value; OnPropertyChanged(); }
+        }
+        public Color LogoutTextColor
+        {
+            get { return _LogoutTextColor; }
+            set { _LogoutTextColor = value; OnPropertyChanged(); }
+        }
+
+        public MainCallJordanViewModel()
         {
             Room = "DesignTimeRoom";
             EndSessionCommand = new Command(OnEndSession);
@@ -81,8 +124,36 @@ namespace Signbook.ViewModels
             SwitchCameraCommand = new Command(SwitchCamera);
             VideoTapCommand = new Command(TapVideo);
             MainPagesClickCommand = new Command(backclicked);
+            GoToDoCallPage = new Command(gotocallpage);
+            GoToScheduleCallPage = new Command(gotoschedulecallpage);
+            LogoutCommand = new Command(OnLogoutClick);
         }
 
+
+        private async void OnLogoutClick(object obj)
+        {
+            // we have to clear the user name and user id
+            try
+            {
+                Application.Current.Properties.Remove("UserName");
+            }
+            catch (Exception e)
+            { }
+            try
+            {
+                Application.Current.Properties.Remove("UserID");
+            }
+            catch (Exception e)
+            { }
+
+            LogoutBackgroundColor = Color.FromHex("#384B6C");
+            LogoutTextColor = Color.White;
+            await Task.Delay(200);
+            NavigationService.NavigateToAsync<MainViewModel>();
+            LogoutBackgroundColor = Color.White;
+            LogoutTextColor = Color.Gray;
+
+        }
         protected override Task InitializeAsync(object navigationData)
         {
             Init();
@@ -92,59 +163,36 @@ namespace Signbook.ViewModels
         {
             NavigationService.NavigateToAsync<MainViewModel>();
         }
+        private async void gotocallpage(object param)
+        {
+            DirectCallBackgroundColor = Color.FromHex("#384B6C");
+            DirectCallTextColor = Color.White;
+            await Task.Delay(200);
+
+            NavigationService.NavigateToAsync<DoCallJordanViewModel>();
+            DirectCallBackgroundColor = Color.White;
+            DirectCallTextColor = Color.Gray;
+        }
+
+        private async void gotoschedulecallpage(object param)
+        {
+            SchedualeBackgroundColor = Color.FromHex("#384B6C");
+            SchedualeTextColor = Color.White;
+            await Task.Delay(200);
+            NavigationService.NavigateToAsync<ScheduleCallViewModel>();
+            SchedualeBackgroundColor = Color.White;
+            SchedualeTextColor = Color.Gray;
+        }
+
+        
         private void TapVideo(object param)
         {
-           
+            
         }
 
         public async void goToSignupPage()
         {
-
-            var Country = Application.Current.Properties["SelectedCountry"] as string;
-            if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
-            {
-
-                if (Country == "Jordan")
-                {
-                    //Jordanian User
-                    NavigationService.NavigateToAsync<SignupJordanViewModel>();
-                }
-                else
-                {
-                    //Omani User
-                    NavigationService.NavigateToAsync<SignupViewModel>();
-                }
-            }
-
-            
-        }
-        public async void GoToForgetPass()
-        {
-            NavigationService.NavigateToAsync<ForgetPassViewModel>();
-        }
-
-        
-
-        public async void goToMainVideoPage()
-        {
-
-            var Country = Application.Current.Properties["SelectedCountry"] as string;
-            if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
-            {
-
-                if (Country == "Jordan")
-                {
-                    //Jordanian User
-                    NavigationService.NavigateToAsync<MainCallJordanViewModel>();
-                }
-                else
-                {
-                    //Omani User
-                    NavigationService.NavigateToAsync<MainCallViewModel>();
-                }
-            }
-
-            
+            NavigationService.NavigateToAsync<SignupViewModel>();
         }
 
             private void SwitchCamera(object param)

@@ -99,8 +99,24 @@ namespace Signbook.Views
 
             try
             {
-                var loginurl = string.Format("http://omnapp.signbook.co/api/SitesApis/ForgetPassword?UserNameorEmail={0}", UserEmail);
-                             
+                var loginurl = "";
+
+                var Country = Application.Current.Properties["SelectedCountry"] as string;
+                if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
+                {
+
+                    if (Country == "Jordan")
+                    {
+                        //Jordanian User
+                        loginurl = string.Format("http://jodata.signbook.co/api/SitesApis/ForgetPassword?UserNameorEmail={0}", UserEmail);
+                    }
+                    else
+                    {
+                        //Omani User
+                        loginurl = string.Format("http://omnapp.signbook.co/api/SitesApis/ForgetPassword?UserNameorEmail={0}", UserEmail);
+                    }
+                }
+
 
                 using (var clientt = new WebClient())
                 {

@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Signbook.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class DoCallJordanViewModel : BaseViewModel
     {
 
 
@@ -70,8 +70,11 @@ namespace Signbook.ViewModels
         public Command SwitchCameraCommand { get; }
         public Command VideoTapCommand { get; }
         public Command MainPagesClickCommand { get; set; }
+        
 
-        public LoginViewModel()
+        
+
+        public DoCallJordanViewModel()
         {
             Room = "DesignTimeRoom";
             EndSessionCommand = new Command(OnEndSession);
@@ -81,6 +84,7 @@ namespace Signbook.ViewModels
             SwitchCameraCommand = new Command(SwitchCamera);
             VideoTapCommand = new Command(TapVideo);
             MainPagesClickCommand = new Command(backclicked);
+            
         }
 
         protected override Task InitializeAsync(object navigationData)
@@ -92,59 +96,15 @@ namespace Signbook.ViewModels
         {
             NavigationService.NavigateToAsync<MainViewModel>();
         }
+        
         private void TapVideo(object param)
         {
-           
+            
         }
 
         public async void goToSignupPage()
         {
-
-            var Country = Application.Current.Properties["SelectedCountry"] as string;
-            if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
-            {
-
-                if (Country == "Jordan")
-                {
-                    //Jordanian User
-                    NavigationService.NavigateToAsync<SignupJordanViewModel>();
-                }
-                else
-                {
-                    //Omani User
-                    NavigationService.NavigateToAsync<SignupViewModel>();
-                }
-            }
-
-            
-        }
-        public async void GoToForgetPass()
-        {
-            NavigationService.NavigateToAsync<ForgetPassViewModel>();
-        }
-
-        
-
-        public async void goToMainVideoPage()
-        {
-
-            var Country = Application.Current.Properties["SelectedCountry"] as string;
-            if (Country != null && !string.IsNullOrEmpty(Country.ToString()))
-            {
-
-                if (Country == "Jordan")
-                {
-                    //Jordanian User
-                    NavigationService.NavigateToAsync<MainCallJordanViewModel>();
-                }
-                else
-                {
-                    //Omani User
-                    NavigationService.NavigateToAsync<MainCallViewModel>();
-                }
-            }
-
-            
+            NavigationService.NavigateToAsync<SignupViewModel>();
         }
 
             private void SwitchCamera(object param)

@@ -78,15 +78,15 @@
                             Margin="10,0"
                             HorizontalOptions="Center"
                             Orientation="Horizontal"
-                            WidthRequest="120">
+                            WidthRequest="150">
                             <Label 
                                 Margin="0,0 "
-                                Text="تسجيل دخول"                                
+                                Text="تسجيل الدخول"                                
                                 FontAttributes="Bold"
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
                                 TextColor="{Binding BarcodeTextColor}"
-                                WidthRequest="300"
+                                WidthRequest="330"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"/>
 

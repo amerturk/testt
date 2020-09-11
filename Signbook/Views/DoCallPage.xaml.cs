@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using Plugin.Geolocator;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Signbook.Controls;
@@ -116,6 +117,9 @@ namespace Signbook.Views
         }
         async void DoVideoCall(object sender, EventArgs args)
         {
+            ErrorLocation.Text = "جاري تحديد موقعك ...";
+            ErrorLocation.TextColor = Color.Green;
+
             var SelectedCompany = picker.SelectedItem;
 
             var SelectedCompanyOpenArea = CompaniesLocations.FirstOrDefault(x => x.Key == SelectedCompany).Value;
@@ -149,66 +153,79 @@ namespace Signbook.Views
                 try
                 {
                     var request = new GeolocationRequest(GeolocationAccuracy.Medium);
-                    var location = await Geolocation.GetLocationAsync(request);
+                    var locator = CrossGeolocator.Current;
 
-                    if (location != null)
+                    if (!locator.IsGeolocationAvailable || !locator.IsGeolocationEnabled)
                     {
-                        // Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                        // get the distance from your current location comparing to company location
-                        double distanceFromCurrentLocation = DistanceTo(location.Latitude, location.Longitude, Convert.ToDouble(SelectedCompanyLat), Convert.ToDouble(SelectedCompanyLong));
-                        //double distanceFromCurrentLocation = DistanceTo(location.Latitude, location.Longitude, 31.9564843, 35.9040618);
-                        if (distanceFromCurrentLocation > 0.1)
+                        // the user is not enabeled the location service 
+                        ErrorLocation.Text = "يجب عليك تفعيل خدمة المواقع";
+                        ErrorLocation.TextColor = Color.Red;
+
+                    }
+                    else
+                    {
+                        var location = await Geolocation.GetLocationAsync(request);
+
+                        if (location != null)
                         {
-                            // in this case the distance is more than 100 meter
-                            //so the call is not allowed 
-                            ErrorLocation.Text = "انت خارج نطاق المؤسسة";
-                        }
-                        else
-                        {
-                            // the user is too close he can do the call
-                            //here we have to get all needed information for call, user ID, Company ID, User Name and Company Name 
-
-                            //Application.Current.Properties[""];
-                            string UserName = Application.Current.Properties["UserName"].ToString();
-                            string UserId = Application.Current.Properties["UserID"].ToString();
-                            string CompanyID = SelectedCompanyID.ToString();
-                            string CompanyName = SelectedCompany.ToString();
-
-
-                            string VideoCallPage = string.Format("https://storage.googleapis.com/signboo/OmanVidCallMob/callScreen/AppPage.html?UserID={0}&UserName={1}&CompanyID={2}&CompanyName={3}&", UserId, UserName, CompanyID, CompanyName);
-
-                            Browser.OpenAsync(new Uri(VideoCallPage), new BrowserLaunchOptions()
+                            // Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                            // get the distance from your current location comparing to company location
+                            double distanceFromCurrentLocation = DistanceTo(location.Latitude, location.Longitude, Convert.ToDouble(SelectedCompanyLat), Convert.ToDouble(SelectedCompanyLong));
+                            //double distanceFromCurrentLocation = DistanceTo(location.Latitude, location.Longitude, 31.9564843, 35.9040618);
+                            if (distanceFromCurrentLocation > 0.1)
                             {
-                                LaunchMode = BrowserLaunchMode.SystemPreferred,
-                                TitleMode = BrowserTitleMode.Hide,
-                                PreferredToolbarColor = System.Drawing.Color.Black,
-                                PreferredControlColor = System.Drawing.Color.Black
-                            });
-                            #region oldcode
+                                // in this case the distance is more than 100 meter
+                                //so the call is not allowed 
+                                ErrorLocation.Text = "انت خارج نطاق المؤسسة";
+                                ErrorLocation.TextColor = Color.Red;
+                            }
+                            else
+                            {
+                                // the user is too close he can do the call
+                                //here we have to get all needed information for call, user ID, Company ID, User Name and Company Name 
 
-                            /* var isPermissioned = await RequestPermission(Plugin.Permissions.Abstractions.Permission.Microphone);
-                             if (isPermissioned)
-                             {
-                                 var browser = new WebView();
+                                //Application.Current.Properties[""];
+                                string UserName = Application.Current.Properties["UserName"].ToString();
+                                string UserId = Application.Current.Properties["UserID"].ToString();
+                                string CompanyID = SelectedCompanyID.ToString();
+                                string CompanyName = SelectedCompany.ToString();
+
+
+                                string VideoCallPage = string.Format("https://storage.googleapis.com/signboo/OmanVidCallMob/callScreen/AppPage.html?UserID={0}&UserName={1}&CompanyID={2}&CompanyName={3}&", UserId, UserName, CompanyID, CompanyName);
+
+                                Browser.OpenAsync(new Uri(VideoCallPage), new BrowserLaunchOptions()
+                                {
+                                    LaunchMode = BrowserLaunchMode.SystemPreferred,
+                                    TitleMode = BrowserTitleMode.Hide,
+                                    PreferredToolbarColor = System.Drawing.Color.Black,
+                                    PreferredControlColor = System.Drawing.Color.Black
+                                });
+                                #region oldcode
+
+                                /* var isPermissioned = await RequestPermission(Plugin.Permissions.Abstractions.Permission.Microphone);
+                                 if (isPermissioned)
+                                 {
+                                     var browser = new WebView();
+                                     browser.Source = "https://storage.googleapis.com/signboo/OmanVidCallMob/callScreen/AppPage.html";
+                                     Content = browser;
+                                 }*/
+                                /* var browser = new WebView();
                                  browser.Source = "https://storage.googleapis.com/signboo/OmanVidCallMob/callScreen/AppPage.html";
-                                 Content = browser;
-                             }*/
-                            /* var browser = new WebView();
-                             browser.Source = "https://storage.googleapis.com/signboo/OmanVidCallMob/callScreen/AppPage.html";
-                             Content = browser;*/
+                                 Content = browser;*/
 
-                            /* Browser.OpenAsync(new Uri("https://storage.googleapis.com/signboo/OmanVidCallMob/callScreen/AppPage.html"),new BrowserLaunchOptions()
-                               {
-                                     LaunchMode = BrowserLaunchMode.SystemPreferred,
-                                     TitleMode = BrowserTitleMode.Hide,
-                                     PreferredToolbarColor = System.Drawing.Color.Black,
-                                     PreferredControlColor = System.Drawing.Color.Black
-                                });*/
+                                /* Browser.OpenAsync(new Uri("https://storage.googleapis.com/signboo/OmanVidCallMob/callScreen/AppPage.html"),new BrowserLaunchOptions()
+                                   {
+                                         LaunchMode = BrowserLaunchMode.SystemPreferred,
+                                         TitleMode = BrowserTitleMode.Hide,
+                                         PreferredToolbarColor = System.Drawing.Color.Black,
+                                         PreferredControlColor = System.Drawing.Color.Black
+                                    });*/
 
 
-                            //Device.OpenUri("https://storage.googleapis.com/signboo/vidcall/TokBox/tokbox.html");
-                            #endregion
+                                //Device.OpenUri("https://storage.googleapis.com/signboo/vidcall/TokBox/tokbox.html");
+                                #endregion
 
+                            }
                         }
                     }
                 }

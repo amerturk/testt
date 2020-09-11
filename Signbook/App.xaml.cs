@@ -116,6 +116,39 @@ namespace Signbook
 
         protected override void OnResume()
         {
+            var navigation = BaseLocator.Instance.Resolve<NavigationService>();
+            if (Xamarin.Forms.Application.Current.Properties.ContainsKey("SelectedCountry"))
+            {
+                if (Xamarin.Forms.Application.Current.Properties.ContainsKey("SelectedDisablitiyType"))
+                {
+                    
+                    navigation.NavigateToAsync<MainViewModel>();
+                }
+                else
+                {
+                    navigation.NavigateToAsync<DisabilityTypeViewModel>();
+                }
+            }
+            else {
+                navigation.NavigateToAsync<CountriesViewModel>();
+            }
+
+            
+
+            /*
+              _bootstrapService?.UpdateNotificationState().SafeFireAndForget(); 
+            if(PopupNavigation.Instance.PopupStack.Count >0)
+                await PopupNavigation.Instance.PopAllAsync();
+            if (_Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                await PopupNavigation.Instance.PushAsync(new NoConnectionPopup());
+            }
+            else
+            {
+              var homeViewModel = LocatorService.Instance.Resolve<HomeViewModel>();
+              await homeViewModel.RefreshData();
+            }
+             */
             // Handle when your app resumes
             if (Device.RuntimePlatform == Device.iOS)
             {

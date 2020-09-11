@@ -180,7 +180,7 @@ namespace Signbook.Views
                 //sucess
                 else {
                     Responceformlbl.Text = "";
-                    ConfirmationLabel.Text = "تم التسجيل بنجاح عند الموافقة سيصلك بريد الكتروني";
+                    ConfirmationLabel.Text = "تم التسجيل بنجاح , يمكنك الان تسجيل الدخول";
                     
                 }
 

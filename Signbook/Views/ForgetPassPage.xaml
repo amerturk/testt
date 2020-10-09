@@ -117,7 +117,7 @@
                                 FontAttributes="Bold"
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
-                                TextColor="{Binding BarcodeTextColor}"
+                                TextColor="#0074b0"
                                 HorizontalTextAlignment="Start"
                                 Keyboard="Email"
                                 x:Name="uEmail"

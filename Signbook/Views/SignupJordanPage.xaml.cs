@@ -52,7 +52,7 @@ namespace Signbook.Views
 
             string Name = fName.Text;
             string Password = uPassword.Text;
-            string UserEmail = uEmail.Text;
+            string UserEmail = "static@mailll.com";
             string Phone = "111111111";
             string CardIdNumber = "111111111";
 
@@ -136,7 +136,7 @@ namespace Signbook.Views
 
         protected override void OnDisappearing()
         {
-            ((SignupViewModel)ViewModel).EndSessionCommand.Execute(false);
+            ((SignupJordanViewModel)ViewModel).EndSessionCommand.Execute(false);
             base.OnDisappearing();
         }
 

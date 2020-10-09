@@ -111,7 +111,7 @@
                         <StackLayout
                             HorizontalOptions="CenterAndExpand"
                             Orientation="Horizontal"
-                            WidthRequest="300">
+                            WidthRequest="230">
                             <Image
                                 Aspect="AspectFit"
                                 HeightRequest="50"
@@ -124,11 +124,7 @@
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
                                 TextColor="#0074b0"
-                                WidthRequest="240"
                                 x:Name="fName"
-                                HorizontalTextAlignment="Start"
-                                HorizontalOptions="Start"
-                                FlowDirection="RightToLeft"
                                 Placeholder="اسم المستخدم"
                                 PlaceholderColor="{Binding BarcodeTextColor}"
                                 VerticalOptions="Center">
@@ -159,7 +155,7 @@
                                 FontAttributes="Bold"
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
-                                TextColor="{Binding BarcodeTextColor}"
+                                TextColor="#0074b0"
                                 WidthRequest="240"
                                 x:Name="IdNumber"
                                 HorizontalTextAlignment="Start"
@@ -196,7 +192,7 @@
                                 FontAttributes="Bold"
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
-                                TextColor="{Binding BarcodeTextColor}"
+                                TextColor="#0074b0"
                                 WidthRequest="240"                                
                                 Keyboard="Numeric"
                                 x:Name="uPhone"
@@ -218,12 +214,11 @@
                         BorderColor="#384B6C"
                         CornerRadius="5"
                         HasShadow="False"
-                        IsVisible="{Binding IsDeaf}">
+                         IsVisible="False">
                         <StackLayout
-                            Margin="10,0"
                             HorizontalOptions="CenterAndExpand"
                             Orientation="Horizontal"
-                            WidthRequest="300">
+                            WidthRequest="230">
                             <Image
                                 Aspect="AspectFit"
                                 HeightRequest="50"
@@ -235,13 +230,9 @@
                                 FontAttributes="Bold"
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
-                                TextColor="{Binding BarcodeTextColor}"
-                                WidthRequest="240"                                
+                                TextColor="#0074b0"                              
                                 Keyboard="Email"
                                 x:Name="uEmail"
-                                HorizontalTextAlignment="Start"
-                                HorizontalOptions="Start"
-                                FlowDirection="LeftToRight"
                                 Placeholder="البريد الالكتروني"                                 
                                 PlaceholderColor="{Binding BarcodeTextColor}"
                                 VerticalOptions="Center">
@@ -260,10 +251,9 @@
                         HasShadow="False"
                         IsVisible="{Binding IsDeaf}">
                         <StackLayout
-                            Margin="10,0"
                             HorizontalOptions="CenterAndExpand"
                             Orientation="Horizontal"
-                            WidthRequest="300">
+                            WidthRequest="230">
                             <Image
                                 Aspect="AspectFit"
                                 HeightRequest="50"
@@ -275,13 +265,9 @@
                                 FontAttributes="Bold"
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
-                                TextColor="{Binding BarcodeTextColor}"
-                                WidthRequest="240"
+                                TextColor="#0074b0"
                                 x:Name="uPassword"
                                 IsPassword="True"
-                                HorizontalTextAlignment="Start"
-                                HorizontalOptions="Start"
-                                FlowDirection="LeftToRight"
                                 Placeholder="كلمة المرور"
                                 PlaceholderColor="{Binding BarcodeTextColor}"
                                 VerticalOptions="Center">

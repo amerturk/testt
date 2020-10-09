@@ -104,7 +104,7 @@
                             Margin="10,0"
                             HorizontalOptions="CenterAndExpand"
                             Orientation="Horizontal"
-                            WidthRequest="300">
+                            WidthRequest="230">
                             <Image
                                 Aspect="AspectFit"
                                 HeightRequest="50"
@@ -112,17 +112,12 @@
                                 Source="user.png"
                                 WidthRequest="50" />
 
-                            <customControls:ExtEntry 
-                                Margin="20,0 "
+                            <customControls:ExtEntry                                 
                                 FontAttributes="Bold"
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
-                                TextColor="{Binding BarcodeTextColor}"
-                                HorizontalTextAlignment="Start"
+                                TextColor="#0074b0"
                                 x:Name="uName"
-                                WidthRequest="230"
-                                 HorizontalOptions="Start"
-                                FlowDirection="RightToLeft"
                                 Placeholder="اسم المستخدم" PlaceholderColor="{Binding BarcodeTextColor}"
                                 VerticalOptions="Center">
                             </customControls:ExtEntry>
@@ -139,10 +134,9 @@
                         HasShadow="False"
                         IsVisible="{Binding IsDeaf}">
                         <StackLayout
-                            Margin="10,0"
                             HorizontalOptions="CenterAndExpand"
                             Orientation="Horizontal"
-                            WidthRequest="300">
+                            WidthRequest="230">
                             <Image
                                 Aspect="AspectFit"
                                 HeightRequest="50"
@@ -151,16 +145,11 @@
                                 WidthRequest="50" />
 
                             <customControls:ExtEntry 
-                                Margin="20,0 "
                                 FontFamily="{x:Static constants:Fonts.FontBold}"
                                 FontSize="20"
                                 IsPassword="True"
-                                HorizontalTextAlignment="Start"
-                                FlowDirection="RightToLeft"
-                                HorizontalOptions="Start"
-                                WidthRequest="230"
                                 x:Name="uPass"
-                                TextColor="{Binding BarcodeTextColor}"
+                                TextColor="#0074b0"
                                 Placeholder="كلمة المرور" PlaceholderColor="{Binding BarcodeTextColor}"
                                 VerticalOptions="Center">
                             </customControls:ExtEntry>
